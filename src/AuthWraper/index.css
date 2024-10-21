@@ -1,0 +1,25 @@
+.AuthWraper{
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid red;
+    padding: 10px;
+    height: 500px;
+}
+
+.bannerPart{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@media screen and (max-width:500px) {
+    .AuthWraper{
+        display: flex;
+        flex-direction: column;
+    }
+    .bannerPart{
+        display: none;
+    }    
+}

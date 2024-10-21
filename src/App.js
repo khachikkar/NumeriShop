@@ -1,24 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
+import MyHeader from './Components/Global/Header';
+
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route
+} from "react-router-dom"
+import MainLayout from './Layout/Main';
+import Login from './pages/auth/login';
+import { ROUTE_CONSTANTS } from './core/constants/constants';
+import Register from './pages/auth/register';
+import { useState } from 'react';
+import { Context } from './Context/context';
+// import Login from './pages/auth/login';
 
 function App() {
+
+
+const [isAuth, setIsAuth] = useState(false)
+
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{isAuth}}>
+    <RouterProvider
+    router={createBrowserRouter(
+      createRoutesFromElements(
+        <Route path='/' element={<MainLayout />}>
+          <Route path={ROUTE_CONSTANTS.LOGIN} element={<Login />} />
+          <Route path={ROUTE_CONSTANTS.REGISTER} element={<Register />} />
+
+        </Route>
+      )
+    )}
+   />
+</Context.Provider>
+   
   );
 }
 
