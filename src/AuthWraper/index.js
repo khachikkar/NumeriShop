@@ -7,7 +7,7 @@ const AuthWraper = ({title, children , banner}) => {
 
 
   return (
-    <Flex gap="middle"  wrap className='AuthWraper'>
+    <Flex gap="middle"   className='AuthWraper'>
       <div className='bannerPart' style={{backgroundImage:`url(${banner})`}}>
       </div>
       <Flex align='center' gap="large" vertical>

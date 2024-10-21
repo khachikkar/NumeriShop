@@ -4,7 +4,7 @@
     grid-template-columns: repeat(2, 1fr);
     /* border: 1px solid red; */
     padding: 10px;
-    height: 500px;
+    /* height: 500px; */
 }
 
 .bannerPart{
@@ -20,7 +20,5 @@
         display: flex;
         flex-direction: column;
     }
-    .bannerPart{
-        display: none;
-    }    
+   
 }
