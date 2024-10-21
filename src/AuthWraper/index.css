@@ -2,7 +2,7 @@
     width: 800px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 10px;
     height: 500px;
 }

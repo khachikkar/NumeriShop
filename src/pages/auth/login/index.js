@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import AuthWraper from "../../../AuthWraper";
 
 import { Form, Button, Input, Flex } from "antd";
 import { Link } from "react-router-dom";
 import { ROUTE_CONSTANTS } from "../../../core/constants/constants";
+import { Context } from "../../../Context/context";
 
 const Login = () => {
   const [form] = Form.useForm();
-
+  const {setIsAuth} = useContext(Context)
   const handleLogin = () => {
     console.log("login");
+    setIsAuth(true)
   };
 
   return (

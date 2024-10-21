@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import MyHeader from './Components/Global/Header';
 
 import {
   RouterProvider,
@@ -27,7 +25,7 @@ const [isAuth, setIsAuth] = useState(false)
 
 
   return (
-    <Context.Provider value={{isAuth}}>
+    <Context.Provider value={{isAuth, setIsAuth}}>
     <RouterProvider
     router={createBrowserRouter(
       createRoutesFromElements(
