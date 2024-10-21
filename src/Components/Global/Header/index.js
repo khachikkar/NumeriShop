@@ -22,7 +22,10 @@ const {isAuth} = useContext(Context)
     <div>
 <Flex justify="space-between" align='center' className='myheader'>
    <div className='logoPart'>
+    <Link to="/">
     <img src={logo} alt='logo' />
+    </Link>
+   
    </div>
    <div className='menuPart'>
 {/* Jamanakavor menu */}
