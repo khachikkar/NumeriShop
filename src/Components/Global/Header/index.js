@@ -23,7 +23,7 @@ const {isAuth, userProfileData} = useContext(Context)
 
 
 ///recive a data from Context
-const {name, lastname} = userProfileData
+
 
   return (
 <div>
