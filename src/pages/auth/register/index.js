@@ -60,7 +60,7 @@ const handleRegister = async (values) => {
             },
           ]}
         >
-          <Input type="text" placeholder="enter your name" />
+          <Input type="text" placeholder="Enter Your Name" style={{ fontSize: '16px' }} />
         </Form.Item>
 
         <Form.Item
@@ -73,7 +73,7 @@ const handleRegister = async (values) => {
             },
           ]}
         >
-          <Input type="text" placeholder="enter your surname" />
+          <Input type="text" placeholder="Enter Your Surname" style={{ fontSize: '16px' }} />
         </Form.Item>
 
         <Form.Item
@@ -86,7 +86,7 @@ const handleRegister = async (values) => {
             },
           ]}
         >
-          <Input type="text" placeholder="enter your name" />
+          <Input type="text" placeholder="Enter Your Email" style={{ fontSize: '16px' }} />
         </Form.Item>
 
         <Form.Item
@@ -105,7 +105,7 @@ const handleRegister = async (values) => {
             },
           ]}
         >
-          <Input.Password type="text" placeholder="Enter your password" />
+          <Input.Password type="text" placeholder="Enter Your Password" style={{ fontSize: '16px' }} />
         </Form.Item>
 
         <Form.Item
@@ -135,7 +135,7 @@ const handleRegister = async (values) => {
             // ays funkcian ant i funkcia e vory confirm e anum pass0y getfieldvalue- confirmi miji gracn e , value dependencieic ekac value
           }
         >
-          <Input.Password type="text" placeholder="Confirm Password" />
+          <Input.Password type="text" placeholder="Confirm Password" style={{ fontSize: '16px' }} />
         </Form.Item>
 
         <Flex wrap justify="center" align="center" gap="10px">
