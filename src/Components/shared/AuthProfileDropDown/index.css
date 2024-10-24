@@ -1,0 +1,14 @@
+.userProfileAvatar{
+    background-color: black;
+    cursor: pointer;
+}
+
+.ProfileDropDownContainer{
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.dropDownMenu{
+    background-color: white;
+    
+}

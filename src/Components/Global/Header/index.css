@@ -13,7 +13,7 @@
 .navPart{
   display: flex;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   justify-content: center;
   gap: 10px;
 }

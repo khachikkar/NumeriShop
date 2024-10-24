@@ -2,7 +2,7 @@ import React from 'react'
 import AuthWraper from '../../../AuthWraper'
 
 import { Form, Button, Input, Flex } from "antd";
-import { ROUTE_CONSTANTS, passWalidation } from '../../../core/constants/constants';
+import { FIRESTORE_PATH_NAMES, ROUTE_CONSTANTS, passWalidation } from '../../../core/constants/constants';
 
 import { Link,  useNavigate } from 'react-router-dom';
 import { auth, db } from '../../../services/firebase';
@@ -26,7 +26,7 @@ const handleRegister = async (values) => {
     try {
      const response =  await createUserWithEmailAndPassword(auth, email, password);
      const {uid} = response.user
-     const createddoc = doc(db, "registeredUsers", uid)
+     const createddoc = doc(db, FIRESTORE_PATH_NAMES.REGISTRED_USERS, uid)
      await setDoc(createddoc, {
         uid, name, lastname, email, password
      })

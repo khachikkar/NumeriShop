@@ -12,25 +12,33 @@ import { Context } from '../../../Context/context'
 
 import { IoBagHandleOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
+import AuthProfileDropDown from '../../shared/AuthProfileDropDown'
+
 
 
 
 const MyHeader = () => {
 
-const {isAuth} = useContext(Context)
+const {isAuth, userProfileData} = useContext(Context)
 
 
+///recive a data from Context
+const {name, lastname} = userProfileData
 
   return (
-    <div>
+<div>
 <Flex justify="space-between" align='center' className='myheader'>
-   <div className='logoPart'>
+
+<div className='logoPart'>
     <Link to="/">
     <img src={logo} alt='logo' />
     </Link>
    
-   </div>
-   <div className='menuPart'>
+</div>
+
+
+
+<div className='menuPart'>
 {/* Jamanakavor menu */}
 <Flex gap="middle" justify="space-between" align='center' >
     <span>Outlet</span>
@@ -39,20 +47,24 @@ const {isAuth} = useContext(Context)
     <span>Designs</span>
     {/* Jamanakavor navpart */}
 </Flex>
-   </div>
-    <div className='navPart'>
+</div>
+
+
+<div className='navPart'>
 
     <IoBagHandleOutline size={24} />
     <IoMdHeartEmpty size={24}/>
 { 
-isAuth ? <span>Khachik Arshakyan</span> : <Link  to={ROUTE_CONSTANTS.LOGIN}>
+isAuth ? <AuthProfileDropDown userProfileInfo={userProfileData} /> : <Link  to={ROUTE_CONSTANTS.LOGIN}>
 <Button className='primaryButton' type='primary'>Sign In</Button>
 </Link> 
 }
    
 </div>
+
+
 </Flex>
-    </div>
+</div>
   )
 }
 
