@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AuthWraper from '../../../AuthWraper'
 
 import { Form, Button, Input, Flex } from "antd";
@@ -17,11 +17,12 @@ const Register = () => {
 
 const [form] = Form.useForm()
 const navigate = useNavigate()
+const [loading, setLoading] = useState(false)
 // const {setIsAuth} = useContext(Context)
 
 
 const handleRegister = async (values) => {
-    // setLoading(true);
+    setLoading(true);
     const {name, lastname,  email, password } = values;
     try {
      const response =  await createUserWithEmailAndPassword(auth, email, password);
@@ -40,8 +41,8 @@ const handleRegister = async (values) => {
       navigate(ROUTE_CONSTANTS.LOGIN);
     } catch (e) {
       console.log(e);
-    } finally {
-      console.log("registered")
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -143,7 +144,7 @@ const handleRegister = async (values) => {
             style={{ width: "100%" }}
             type="primary"
             htmlType="submit"
-            // loading={loading}
+            loading={loading}
           >
             Register
           </Button>
