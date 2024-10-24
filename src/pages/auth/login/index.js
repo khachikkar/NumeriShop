@@ -1,18 +1,40 @@
 import React, { useContext } from "react";
 import AuthWraper from "../../../AuthWraper";
 
-import { Form, Button, Input, Flex } from "antd";
+import { Form, Button, Input, Flex, notification } from "antd";
 import { Link } from "react-router-dom";
 import { ROUTE_CONSTANTS } from "../../../core/constants/constants";
 import { Context } from "../../../Context/context";
 
+import { auth } from "../../../services/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 const Login = () => {
   const [form] = Form.useForm();
   const {setIsAuth} = useContext(Context)
-  const handleLogin = () => {
-    console.log("login");
-    setIsAuth(true)
-  };
+
+
+
+  const handleLogin = async(values) => {
+    try {
+        const { email, password } = values;
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log(values)
+        form.resetFields();
+        setIsAuth(true)
+      } catch (error) {
+        notification.error({
+          message: "Invalid Login Credentials", // Fixed message typo
+        });
+      } 
+    };
+  
+
+
+// organization of data sotre in fireStore
+
+
+
 
   return (
     <AuthWraper title="Log In" banner="https://images.unsplash.com/photo-1574015974293-817f0ebebb74?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">

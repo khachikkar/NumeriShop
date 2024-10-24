@@ -5,9 +5,13 @@ import { Form, Button, Input, Flex } from "antd";
 import { ROUTE_CONSTANTS, passWalidation } from '../../../core/constants/constants';
 
 import { Link,  useNavigate } from 'react-router-dom';
-import { auth } from '../../../services/firebase';
+import { auth, db } from '../../../services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import { Context } from '../../../Context/context';
+
+// import db, doc, setDoc
+import {doc, setDoc} from "firebase/firestore"
+
 
 const Register = () => {
 
@@ -18,9 +22,17 @@ const navigate = useNavigate()
 
 const handleRegister = async (values) => {
     // setLoading(true);
-    const { email, password } = values;
+    const {name, lastname,  email, password } = values;
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+     const response =  await createUserWithEmailAndPassword(auth, email, password);
+     const {uid} = response.user
+     const createddoc = doc(db, "registeredUsers", uid)
+     await setDoc(createddoc, {
+        uid, name, lastname, email, password
+     })
+
+
+
       console.log(values )
     //   setIsAuth(true)
     //   setNameD(values.name +" "+values.lastname) // set arecin name ev surname y

@@ -10,6 +10,9 @@ import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
 import { useContext } from 'react'
 import { Context } from '../../../Context/context'
 
+import { IoBagHandleOutline } from "react-icons/io5";
+import { IoMdHeartEmpty } from "react-icons/io";
+
 
 
 const MyHeader = () => {
@@ -38,9 +41,11 @@ const {isAuth} = useContext(Context)
 </Flex>
    </div>
     <div className='navPart'>
-        {/* <span>NavPart</span> */}
-{
-isAuth ? <span>My Profile</span> : <Link  to={ROUTE_CONSTANTS.LOGIN}>
+
+    <IoBagHandleOutline size={24} />
+    <IoMdHeartEmpty size={24}/>
+{ 
+isAuth ? <span>Khachik Arshakyan</span> : <Link  to={ROUTE_CONSTANTS.LOGIN}>
 <Button className='primaryButton' type='primary'>Sign In</Button>
 </Link> 
 }
