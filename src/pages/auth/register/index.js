@@ -56,7 +56,7 @@ const handleRegister = async (values) => {
           rules={[
             {
               required: true,
-              message: "Please input your first name!",
+              message: "Please input your Firstname!",
             },
           ]}
         >
@@ -69,7 +69,7 @@ const handleRegister = async (values) => {
           rules={[
             {
               required: true,
-              message: "Please input your Last name!",
+              message: "Please input your Lastname!",
             },
           ]}
         >
@@ -82,7 +82,7 @@ const handleRegister = async (values) => {
           rules={[
             {
               required: true,
-              message: "Please input your Last email!",
+              message: "Please input your Email!",
             },
           ]}
         >
@@ -101,7 +101,7 @@ const handleRegister = async (values) => {
             {
               pattern: passWalidation,
               message:
-                "Password must be 6-16 characters, including at least one number and one...",
+                "Password must be 6-16 characters, including at least one number , one symbol, a minimum one uppercase and one lowercase letter",
             },
           ]}
         >
@@ -111,7 +111,7 @@ const handleRegister = async (values) => {
         <Form.Item
           label="Confirm Password"
           name="confirm"
-          tooltip="Password must be 6-16 characters, including at least one number and one..."
+          tooltip="Password must be 6-16 characters, including at least one number , one symbol, a minimum one uppercase and one lowercase letter"
           dependencies={["password"]} // sa nayum e password i popoxutyany talis enq label i name vor nayi dran
           rules={
             [

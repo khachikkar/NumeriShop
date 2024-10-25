@@ -7,7 +7,7 @@ const TestPage = () => {
 
   return (
     <div>
-      <h1>Dear Numeri Cutoumer, We will lunched soon ...</h1>
+      <h1>Dear Numeri Customer, We will lunched soon ...</h1>
 
 
 

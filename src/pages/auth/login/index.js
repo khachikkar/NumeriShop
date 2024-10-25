@@ -7,7 +7,7 @@ import { ROUTE_CONSTANTS } from "../../../core/constants/constants";
 import { Context } from "../../../Context/context";
 
 import { auth } from "../../../services/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword , sendPasswordResetEmail} from "firebase/auth";
 
 const Login = () => {
   const [form] = Form.useForm();
@@ -35,7 +35,28 @@ const Login = () => {
   
 
 
-// organization of data sotre in fireStore
+// reset password functionality
+const handleResetPassword = async () => {
+  const email = form.getFieldValue('email'); // Get the entered email
+
+  if (!email) {
+    notification.error({
+      message: "Please enter your email address to reset password.",
+    });
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    notification.success({
+      message: "Password reset email sent!",
+    });
+  } catch (error) {
+    notification.error({
+      message: "Failed to send reset email. Please try again.",
+    });
+  }
+};
 
 
 
@@ -50,7 +71,7 @@ const Login = () => {
           rules={[
             {
               required: true,
-              message: "Pls enter your Eamil",
+              message: "Please Enter Your Email",
             },
           ]}
         >
@@ -67,14 +88,21 @@ const Login = () => {
           rules={[
             {
               required: true,
-              message: "Pls enter your Password",
+              message: "Please Enter Your Password",
             },
           ]}
         >
           <Input.Password placeholder="Password" style={{ fontSize: '16px' }} />
         </Form.Item>
+         
+        <Flex wrap justify="flex-end" align="center" gap="10px">
 
-        <Flex wrap justify="center" align="center" gap="10px">
+        <Button 
+        onClick={handleResetPassword}
+        type="text"
+        >Reset Password
+        </Button>
+
           <Button
             className="primaryButton"
             style={{ width: "100%" }}
