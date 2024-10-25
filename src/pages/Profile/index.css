@@ -53,10 +53,30 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
 }
    
 .InfoPart{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
 }
+
+@media screen and (max-width:420px) {
+    .InfoPart{
+        grid-template-columns: 1fr;
+    } 
+}
+
+@media screen and (min-width:421px) and (max-width:650px) {
+    .InfoPart{
+        grid-template-columns: 1fr 1fr;
+    } 
+}
+
+@media screen and (min-width:651px) and (max-width:850px) {
+    .InfoPart{
+        grid-template-columns: 1fr 1fr 1fr;
+    } 
+}
+
+
 
 .profblock{
     border: 0.5px solid black;
@@ -64,6 +84,7 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
     padding: 6px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
 
 }

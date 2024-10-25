@@ -41,7 +41,6 @@ const {name, lastname, email} = userProfileData
     <div>
         <h1>{name}</h1>
         <h1>{lastname}</h1>
-        <p>{email}</p>
     </div>
 
 
@@ -56,6 +55,18 @@ const {name, lastname, email} = userProfileData
       <div className='InfoPart'>
 
 <div className='profblock'>
+    <h2>Email</h2>
+    <p>{email}</p>
+    <Button type="text">Edit Email<CiEdit size={20} /></Button> 
+</div>
+
+<div className='profblock'>
+    <h2>Password</h2>
+    <p>Password is hidden *</p>
+    <Button type="text">Change Password<CiEdit size={20} /></Button> 
+</div>
+
+<div className='profblock'>
     <h2>My Adresses</h2>
     <p> <IoLocationOutline size={20}/> No mentioned adress</p>
     <p> <IoLocationOutline size={20}/> No mentioned adress</p>
@@ -67,7 +78,13 @@ const {name, lastname, email} = userProfileData
     <h2>Payment Method</h2>
     <p> <MdOutlinePayment size={20}/> No such Patment Method</p>
     <Button type="text">Add Payment <CiEdit size={20} /></Button>
+</div>
 
+<div className='profblock'>
+    <h2>Total buyed Products</h2>
+    <p>Total : 0</p>
+    <p>Spended Money : $0</p>
+    <Button type="text">Start shop</Button>
 </div>
 
 
