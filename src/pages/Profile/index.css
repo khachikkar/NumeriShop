@@ -20,8 +20,8 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
     gap: 10px;
     border-radius: 10px;
     img{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
          border-radius: 50%;
          object-fit: cover;
 
@@ -32,12 +32,12 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
     /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 100px;
     justify-content: space-between;
 
     h1{
         margin: 0;
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 600;
     }
 
@@ -52,13 +52,13 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
     }
 }
    
-.InfoPart{
+/* .InfoPart{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
-}
+} */
 
-@media screen and (max-width:420px) {
+/* @media screen and (max-width:420px) {
     .InfoPart{
         grid-template-columns: 1fr;
     } 
@@ -74,17 +74,17 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 32%, rgba(10,0,255,1) 100
     .InfoPart{
         grid-template-columns: 1fr 1fr 1fr;
     } 
-}
+} */
 
 
 
-.profblock{
+/* .profblock{
     border: 0.5px solid black;
     border-radius: 10px;
     padding: 6px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 10px;
 
-}
+} */

@@ -1,15 +1,15 @@
 import React from 'react'
 import MyHeader from '../../Components/Global/Header'
-import { Flex } from 'antd'
+// import { Flex } from 'antd'
 import { Outlet } from 'react-router-dom'
 import "./index.css"
 const MainLayout = () => {
   return (
-    <div className='Main_Layout_Container'>
+    <div className='MainLayout'>
       <MyHeader />
-      <Flex className='main' wrap align="center" justify="center">
+      <main className='main'>
         <Outlet />
-      </Flex>
+      </main>
     </div>
   )
 }

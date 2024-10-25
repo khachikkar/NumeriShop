@@ -13,7 +13,6 @@ import Register from './pages/auth/register';
 import { useState, useEffect } from 'react';
 import { Context } from './Context/context';
 import { Navigate } from 'react-router-dom';
-import Cabinet from './pages/Cabinet';
 // import Login from './pages/auth/login';
 
 import { onAuthStateChanged } from 'firebase/auth';
@@ -21,6 +20,7 @@ import { auth, db } from './services/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import Profile from './pages/Profile';
 import TestPage from './pages/TestPage';
+import CabinetLayout from './Layout/Cabinet';
 
 function App() {
 
@@ -63,9 +63,16 @@ useEffect(()=>{
         <Route path='/' element={<MainLayout />}>
           <Route path={ROUTE_CONSTANTS.TEST} element={ <TestPage />} />
           <Route path={ROUTE_CONSTANTS.LOGIN} element={isAuth ? <Navigate to={ROUTE_CONSTANTS.CABINET} /> : <Login />} />
-          <Route path={ROUTE_CONSTANTS.PROFILE} element={isAuth ? <Profile /> : <Navigate to={ROUTE_CONSTANTS.LOGIN} />} />
           <Route path={ROUTE_CONSTANTS.REGISTER} element={isAuth ? <Navigate to={ROUTE_CONSTANTS.CABINET} /> : <Register />} />
-          <Route path={ROUTE_CONSTANTS.CABINET} element={isAuth ? <Cabinet /> : <Navigate to={ROUTE_CONSTANTS.LOGIN} />} />
+
+<Route path={ROUTE_CONSTANTS.CABINET} element={isAuth ? <CabinetLayout /> : <Navigate to={ROUTE_CONSTANTS.LOGIN} />}>
+
+<Route path={ROUTE_CONSTANTS.PROFILE} element={ <Profile /> } />
+
+
+</Route>
+
+
 
         </Route>
       )

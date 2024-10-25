@@ -1,96 +1,117 @@
-import React from 'react'
-
+import React, { useEffect , useState} from "react";
 
 // now i create my profile page in my way untill REDUX learning !!
 
-import { useContext } from 'react'
+import { useContext } from "react";
 import { CiEdit } from "react-icons/ci";
-import { IoLocationOutline } from "react-icons/io5";
-import { MdOutlinePayment } from "react-icons/md";
-
-import "./index.css"
-import { Context } from '../../Context/context'
-import { Button } from 'antd'
 
 
+import "./index.css";
+import { Context } from "../../Context/context";
+import { Button , Form, Input, Radio} from "antd";
 
 const Profile = () => {
+  const { userProfileData } = useContext(Context);
+  const {name, lastname} = userProfileData
+  const [form] = Form.useForm()
 
 
-const {userProfileData} = useContext(Context)
+  const [value, setValue] = useState("");
+  const onChange = (e) => {
+    console.log('radio checked', e.target.value);
+    setValue(e.target.value);
+  };
 
-const {name, lastname, email} = userProfileData
 
+
+
+
+  useEffect(()=>{
+    const {uid, password, ...restData} = userProfileData
+    form.setFieldsValue(restData)
+    }, [form, userProfileData])
 
 
 
 
   return (
-    <div className='ProfileCont'>
-        <h3>My Profile</h3>
+    <div className="ProfileCont">
 
-         <div className='VisualPart'>
-
-            <div>
-                <img src="https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" alt='sts'/>
-
-            </div>
-
-    <div className='profPart'>
-
-    <div>
-        <h1>{name}</h1>
-        <h1>{lastname}</h1>
-    </div>
-
-
-    <div className='EditProfile'>
-    <Button type="text">Edit Profile <CiEdit size={20} /></Button>
-    </div>
-    </div>
-
+      <div className="VisualPart">
+        <div>
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg"
+            alt="sts"
+          />
         </div>
 
+        <div className="profPart">
+          <div>
+            <h1>{name}</h1>
+            <h1>{lastname}</h1>
+          </div>
 
-      <div className='InfoPart'>
-
-<div className='profblock'>
-    <h2>Email</h2>
-    <p>{email}</p>
-    <Button type="text">Edit Email<CiEdit size={20} /></Button> 
-</div>
-
-<div className='profblock'>
-    <h2>Password</h2>
-    <p>Password is hidden *</p>
-    <Button type="text">Change Password<CiEdit size={20} /></Button> 
-</div>
-
-<div className='profblock'>
-    <h2>My Adresses</h2>
-    <p> <IoLocationOutline size={20}/> No mentioned adress</p>
-    <p> <IoLocationOutline size={20}/> No mentioned adress</p>
-    <Button type="text">Add Adresses <CiEdit size={20} /></Button>
-
-</div>
-
-<div className='profblock'>
-    <h2>Payment Method</h2>
-    <p> <MdOutlinePayment size={20}/> No such Patment Method</p>
-    <Button type="text">Add Payment <CiEdit size={20} /></Button>
-</div>
-
-<div className='profblock'>
-    <h2>Total buyed Products</h2>
-    <p>Total : 0</p>
-    <p>Spended Money : $0</p>
-    <Button type="text">Start shop</Button>
-</div>
-
-
+          <div className="EditProfile">
+            <Button type="text">
+              Edit Profile <CiEdit size={20} />
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
-  )
-}
 
-export default Profile
+      
+
+
+<Form layout='vertical' form={form}>
+
+<Form.Item
+label="Firstname"
+name="name"
+
+>
+<Input placeholder='Firstname' />
+</Form.Item>
+
+<Form.Item
+label="LastName"
+name="lastname"
+>
+<Input placeholder='LastName' />
+</Form.Item>
+
+<Form.Item
+label="Email"
+name="email"
+>
+<Input readOnly placeholder='Email' />
+</Form.Item>
+
+<Form.Item
+label="Phone Number"
+name="phonenumber"
+>
+<Input placeholder='Phone Number' />
+</Form.Item>
+
+<Form.Item
+label="Position"
+name="position"
+>
+<Radio.Group onChange={onChange} value={value}>
+      <Radio value={1}>Customer</Radio>
+      <Radio value={2}>Seller</Radio>
+      
+    </Radio.Group>
+</Form.Item>
+
+
+<Button type='primary' htmlType='submit'>Submit</Button>
+
+      </Form>
+
+      
+    </div>
+  );
+};
+
+export default Profile;

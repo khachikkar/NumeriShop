@@ -121,7 +121,7 @@ const handleResetPassword = async () => {
             Log In with Google
           </Button>
 
-          <Link to={ROUTE_CONSTANTS.REGISTER}>
+          <Link style={{ width: "100%" }}  to={ROUTE_CONSTANTS.REGISTER}>
             <Button style={{ width: "100%" }} type="Link">
               Create Acount
             </Button>
