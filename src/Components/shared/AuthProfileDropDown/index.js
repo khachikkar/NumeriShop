@@ -70,7 +70,7 @@ const {token} = useToken() // dizayni hamar e
 
 
 // const {userProfileInfo} = useContext(AuthContext)
-const {name, lastname, email} = userProfileInfo
+const {name, lastname, email, position} = userProfileInfo
 // console.log(userProfileInfo, "LLLLLLL")
 
   return (
@@ -94,6 +94,7 @@ const {name, lastname, email} = userProfileInfo
                     <Avatar src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png" />
                     <Text>{name} {lastname}</Text>
                     <Text type='secondary'>{email}</Text>
+                    <Text type='secondary'>{position || ""}</Text>
                 </Flex>
                 {menu}
             </div>

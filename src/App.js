@@ -56,7 +56,7 @@ useEffect(()=>{
 
 
   return (
-    <Context.Provider value={{isAuth, setIsAuth, userProfileData}}>
+    <Context.Provider value={{isAuth, setIsAuth, userProfileData, handleGetUserData}}>
     <RouterProvider
     router={createBrowserRouter(
       createRoutesFromElements(
