@@ -8,10 +8,14 @@ import { useContext } from "react";
 
 import "./index.css";
 import { Context } from "../../Context/context";
-import { Button , Form, Input, notification, Radio} from "antd";
+import { Button , Form, Input, message, notification, Radio, Upload} from "antd";
+import { PlusOutlined } from '@ant-design/icons';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
+
+import { getStorage, ref, uploadBytesResumable, getDownloadURL  } from "firebase/storage";
+
 
 const Profile = () => {
   const { userProfileData , handleGetUserData} = useContext(Context);
@@ -26,7 +30,48 @@ const Profile = () => {
   };
 
 
-  const {uid, password, ...restData} = userProfileData
+//Image uploading
+
+const {uid, password, image, ...restData} = userProfileData
+
+
+const storage = getStorage()
+const [imageUrl, setImageUrl] = useState(image || null)
+
+
+
+
+
+const handleUpload = (options)=>{
+
+  const { file, onSuccess, onError } = options;
+
+  const storigeref = ref(storage, `images/${uid}/${file.name}`)
+  const uploadTask = uploadBytesResumable(storigeref, file)
+
+uploadTask.on(
+  "state_changed",
+  null,
+  (error)=> {
+    message.error(`Upload failed: ${error.message}`)
+    onError(error)
+  },
+  
+  async ()=>{
+    const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref)
+    setImageUrl(downloadUrl)
+
+    console.log(downloadUrl, ">>>>>>>>>>>>>>>>>>>>>>>")
+
+    onSuccess(null, file)
+    message.success("Upload Successfull")
+    
+  }
+
+)
+
+}
+
 
 
 
@@ -35,12 +80,12 @@ const Profile = () => {
     }, [form,restData, userProfileData])
 
 
-
 const handleEditUserProfile = async (values)=>{
 setLoading(true)
 try{
   const userDocRef = doc(db, FIRESTORE_PATH_NAMES.REGISTRED_USERS, uid)
-  await updateDoc(userDocRef, values)
+  const updatedValues = {...values, image: imageUrl || userProfileData.image}
+  await updateDoc(userDocRef, updatedValues)
   handleGetUserData(uid)
   notification.success({
     message: "User Information Updated !"
@@ -64,7 +109,7 @@ try{
       <div className="VisualPart">
         <div>
           <img
-            src="https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg"
+            src={image || "https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg" }
             alt="sts"
           />
         </div>
@@ -87,6 +132,26 @@ try{
 
 
 <Form layout='vertical' form={form} onFinish={handleEditUserProfile}>
+
+<Form.Item
+label="Profile Image"
+name="image"
+>
+
+<Upload
+listType="picture-card"
+showUploadList={false}
+customRequest={handleUpload}
+>
+
+{imageUrl ? <img src={imageUrl} alt="Uploaded" style={{ width: '100px', height:"100px" }} /> : <PlusOutlined />}
+
+</Upload>
+
+</Form.Item>
+
+
+
 
 <Form.Item
 label="Firstname"
