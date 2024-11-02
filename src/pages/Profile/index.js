@@ -17,11 +17,19 @@ import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL  } from "firebase/storage";
 
 
+// redux imports
+import {useDispatch} from "react-redux";
+import {increment, decrement} from "../../state-management/slices/userProfile";
+
 const Profile = () => {
   const { userProfileData , handleGetUserData} = useContext(Context);
   const {name, lastname} = userProfileData
   const [form] = Form.useForm()
   const [loading, setLoading] = useState(false)
+
+  // usage of dispatch
+  const dispatch = useDispatch()
+
 
   const [value, setValue] = useState("");
   const onChange = (e) => {
@@ -100,6 +108,8 @@ try{
 }
 }
 
+// redux dispatch actions part
+
 
 
 
@@ -128,7 +138,12 @@ try{
         </div>
       </div>
 
-      
+{/*      kporcenq dnel estex actionner*/}
+{/*      add enq anum inccremnet u decrementy*/}
+
+      <button onClick={()=>dispatch(decrement())}>-</button>
+      <p>Add items in bag</p>
+      <button onClick={()=>dispatch(increment())}>+</button>
 
 
 <Form layout='vertical' form={form} onFinish={handleEditUserProfile}>

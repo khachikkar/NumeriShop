@@ -22,6 +22,14 @@ import Profile from './pages/Profile';
 import TestPage from './pages/TestPage';
 import CabinetLayout from './Layout/Cabinet';
 
+
+
+// import Provider vor ashxati react redux y
+import {Provider} from "react-redux";
+import {store} from "./state-management/store";
+
+
+
 function App() {
 
 const [isAuth, setIsAuth] = useState(false)
@@ -56,6 +64,7 @@ useEffect(()=>{
 
 
   return (
+      <Provider store={store} >
     <Context.Provider value={{isAuth, setIsAuth, userProfileData, handleGetUserData}}>
     <RouterProvider
     router={createBrowserRouter(
@@ -79,6 +88,7 @@ useEffect(()=>{
     )}
    />
 </Context.Provider>
+    </Provider>
    
   );
 }
