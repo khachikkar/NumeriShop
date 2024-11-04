@@ -7,9 +7,6 @@ import {Link} from "react-router-dom"
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
 
 
-import { useContext } from 'react'
-import { Context } from '../../../Context/context'
-
 import { IoBagHandleOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import AuthProfileDropDown from '../../shared/AuthProfileDropDown'
@@ -20,11 +17,8 @@ import {useSelector} from "react-redux";
 
 const MyHeader = () => {
 
-const {isAuth, userProfileData} = useContext(Context)
 
-
-    // vercrecinq count y drinq nav um
-const {count} = useSelector(store=>store.userProfile)
+const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfile)
 
 
   return (
@@ -57,11 +51,11 @@ const {count} = useSelector(store=>store.userProfile)
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
             <IoBagHandleOutline size={24}/>
-            {count > 0 && <span className="badge">{count}</span>}
+            {2 > 0 && <span className="badge">2</span>}
         </div>
         <IoMdHeartEmpty size={24}/>
         {
-            isAuth ? <AuthProfileDropDown userProfileInfo={userProfileData}/> : <Link to={ROUTE_CONSTANTS.LOGIN}>
+            isAuth ? <AuthProfileDropDown userProfileInfo={userData}/> : <Link to={ROUTE_CONSTANTS.LOGIN}>
                 <Button className='primaryButton' type='primary'>Sign In</Button>
             </Link>
         }

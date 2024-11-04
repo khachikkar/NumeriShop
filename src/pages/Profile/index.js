@@ -1,13 +1,8 @@
 import React, { useEffect , useState} from "react";
 
-// now i create my profile page in my way untill REDUX learning !!
-
-import { useContext } from "react";
-// import { CiEdit } from "react-icons/ci";
-
 
 import "./index.css";
-import { Context } from "../../Context/context";
+
 import { Button , Form, Input, message, notification, Radio, Upload} from "antd";
 import { PlusOutlined } from '@ant-design/icons';
 import { doc, updateDoc } from "firebase/firestore";
@@ -18,17 +13,22 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL  } from "firebase
 
 
 // redux imports
-import {useDispatch} from "react-redux";
-import {increment, decrement} from "../../state-management/slices/userProfile";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUserProfileInfo} from "../../state-management/slices/userProfile";
+
 
 const Profile = () => {
-  const { userProfileData , handleGetUserData} = useContext(Context);
-  const {name, lastname} = userProfileData
-  const [form] = Form.useForm()
-  const [loading, setLoading] = useState(false)
+
 
   // usage of dispatch
   const dispatch = useDispatch()
+  const {authUserProfile: {userData}} = useSelector(store=>store.userProfile)
+
+
+  const {name, lastname} = userData
+  const [form] = Form.useForm()
+  const [loading, setLoading] = useState(false)
+
 
 
   const [value, setValue] = useState("");
@@ -40,7 +40,7 @@ const Profile = () => {
 
 //Image uploading
 
-const {uid, password, image, ...restData} = userProfileData
+const {uid, password, image, ...restData} = userData
 
 
 const storage = getStorage()
@@ -85,16 +85,16 @@ uploadTask.on(
 
   useEffect(()=>{
     form.setFieldsValue(restData)
-    }, [form,restData, userProfileData])
+    }, [form,restData, userData])
 
 
 const handleEditUserProfile = async (values)=>{
 setLoading(true)
 try{
   const userDocRef = doc(db, FIRESTORE_PATH_NAMES.REGISTRED_USERS, uid)
-  const updatedValues = {...values, image: imageUrl || userProfileData.image}
+  const updatedValues = {...values, image: imageUrl || userData.image}
   await updateDoc(userDocRef, updatedValues)
-  handleGetUserData(uid)
+  dispatch(fetchUserProfileInfo)
   notification.success({
     message: "User Information Updated !"
   })
@@ -138,12 +138,7 @@ try{
         </div>
       </div>
 
-{/*      kporcenq dnel estex actionner*/}
-{/*      add enq anum inccremnet u decrementy*/}
 
-      <button onClick={()=>dispatch(decrement())}>-</button>
-      <p>Add items in bag</p>
-      <button onClick={()=>dispatch(increment())}>+</button>
 
 
 <Form layout='vertical' form={form} onFinish={handleEditUserProfile}>

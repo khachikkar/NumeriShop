@@ -1,35 +1,35 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import AuthWraper from "../../../AuthWraper";
 
 import { Form, Button, Input, Flex, notification } from "antd";
 import { Link } from "react-router-dom";
 import { ROUTE_CONSTANTS } from "../../../core/constants/constants";
-import { Context } from "../../../Context/context";
+
 
 import { auth } from "../../../services/firebase";
 import { signInWithEmailAndPassword , sendPasswordResetEmail} from "firebase/auth";
+import {useDispatch} from "react-redux";
+import {setIsAuth} from "../../../state-management/slices/userProfile";
 
 const Login = () => {
   const [form] = Form.useForm();
-  const {setIsAuth} = useContext(Context)
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch();
+
+
 
 
   const handleLogin = async(values) => {
-    setLoading(true)
+
     try {
         const { email, password } = values;
         await signInWithEmailAndPassword(auth, email, password);
         console.log(values)
         form.resetFields();
-        setIsAuth(true)
+        dispatch(setIsAuth(true))
       } catch (error) {
         notification.error({
           message: "Invalid Login Credentials", // Fixed message typo
         });
-      } finally{
-        setLoading(false)
-        //
       }
     };
   
@@ -108,7 +108,7 @@ const handleResetPassword = async () => {
             style={{ width: "100%" }}
             type="primary"
             htmlType="submit"
-            loading={loading}
+            // loading={loading}
           >
             Login
           </Button>
