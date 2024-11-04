@@ -40,7 +40,7 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchUserProfileInfo())
-    }, [])
+    }, [dispatch])
 
 
     return (
