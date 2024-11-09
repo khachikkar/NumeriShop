@@ -71,7 +71,7 @@ const {token} = useToken() // dizayni hamar e
 
 // const {userProfileInfo} = useContext(AuthContext)
 const {name, lastname, email, position, image} = userProfileInfo
-// console.log(userProfileInfo, "LLLLLLL")
+console.log(userProfileInfo, "LLLLLLL")
 
   return (
     <Dropdown
