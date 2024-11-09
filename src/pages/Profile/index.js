@@ -94,7 +94,7 @@ try{
   const userDocRef = doc(db, FIRESTORE_PATH_NAMES.REGISTRED_USERS, uid)
   const updatedValues = {...values, image: imageUrl || userData.image}
   await updateDoc(userDocRef, updatedValues)
-  dispatch(fetchUserProfileInfo)
+  dispatch(fetchUserProfileInfo(imageUrl))
   notification.success({
     message: "User Information Updated !"
   })
