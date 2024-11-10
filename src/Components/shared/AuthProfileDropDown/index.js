@@ -34,14 +34,14 @@ const dispatch = useDispatch()
     }
   }
   
-  
-const handlefirstLetters =  ({name, lastname})=>{
-
-if(name && lastname){
-  return `${name[0]} ${lastname[0]}`
-}
-return "..."
-}
+//
+// const handlefirstLetters =  ({name, lastname})=>{
+//
+// if(name && lastname){
+//   return `${name[0]} ${lastname[0]}`
+// }
+// return "..."
+// }
 
   
   const items =[
