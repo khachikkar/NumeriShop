@@ -145,7 +145,6 @@ try{
 
 <Form.Item
 label="Profile Image"
-name="image"
 >
 
 <Upload
