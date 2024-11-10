@@ -52,7 +52,7 @@ const userProfileSlice = createSlice({
     extraReducers:(promise)=>{
         promise
             .addCase(fetchUserProfileInfo.pending, (state)=>{
-
+            state.loading = true
             })
             .addCase(fetchUserProfileInfo.fulfilled, (state, action)=>{
                 state.loading = false
