@@ -9,7 +9,7 @@ import { ROUTE_CONSTANTS } from "../../../core/constants/constants";
 import { auth } from "../../../services/firebase";
 import { signInWithEmailAndPassword , sendPasswordResetEmail} from "firebase/auth";
 import {useDispatch} from "react-redux";
-import {setIsAuth} from "../../../state-management/slices/userProfile";
+import {fetchUserProfileInfo, setIsAuth} from "../../../state-management/slices/userProfile";
 
 const Login = () => {
   const [form] = Form.useForm();
@@ -26,6 +26,7 @@ const Login = () => {
         console.log(values)
         form.resetFields();
         dispatch(setIsAuth(true))
+        dispatch(fetchUserProfileInfo()) // vorpesi isAUTH  true darna fetch ani useric data
       } catch (error) {
         notification.error({
           message: "Invalid Login Credentials", // Fixed message typo

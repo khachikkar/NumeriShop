@@ -44,7 +44,7 @@ const {uid, password, image, ...restData} = userData
 
 
 const storage = getStorage()
-const [imageUrl, setImageUrl] = useState(image || null)
+const [imageUrl, setImageUrl] = useState(image || "https://static.vecteezy.com/system/resources/previews/001/840/612/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg")
 
 
 

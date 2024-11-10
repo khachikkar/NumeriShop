@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
 
 import "./index.css"
+import {setIsAuth} from "../../../state-management/slices/userProfile";
+import {useDispatch} from "react-redux";
 
 const {Text } = Typography
 const {useToken} = theme
@@ -18,7 +20,7 @@ const AuthProfileDropDown = ({userProfileInfo}) => {
 
 
 const navigate = useNavigate()
-
+const dispatch = useDispatch()
 
 
 
@@ -26,6 +28,7 @@ const navigate = useNavigate()
     // console.log("signout")
     try{
       await signOut(auth) // poxancum enq authy vor kaskana uma sign out anum
+        dispatch(setIsAuth(false)) // poxancum enq vor sign out lini
     }catch(e){
       console.log(e, "sign out message")
     }
