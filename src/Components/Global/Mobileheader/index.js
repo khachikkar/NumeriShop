@@ -70,7 +70,7 @@ const MobileHeader = () => {
 
                 {
                     isAuth  ?    <AuthProfileDropDown userProfileInfo={userData} />
-                        :  <UserOutlined style={{ fontSize: '24px' }} />
+                        :  <UserOutlined onClick={()=>navigate(ROUTE_CONSTANTS.LOGIN)} style={{ fontSize: '24px' }} />
                 }
 
 

@@ -1,7 +1,8 @@
 
 .headerCont{
     width: 100%;
-    /*position: fixed;*/
+    position: fixed;
+    top: 0;
     background-color: rgba(255, 255, 255, 0.339);
     backdrop-filter: blur(10px);
     /*color: white;*/
@@ -32,15 +33,17 @@
 .primaryButton{
     background-color: var(--primary-color);
     color: var(--onblack);
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     font-size: 16px;
 
-    &:hover{
-        background-color: white;
-        color: black;
-        border: 1px solid var(--onwhite);
-    }
+
 }
+.primaryButton:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid var(--onwhite);
+}
+
 
 .icon-container {
     position: relative;
