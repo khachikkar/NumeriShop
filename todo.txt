@@ -1,5 +1,13 @@
 1. nayel naxord dasi videon "ok"
 2. fix anel sign in u sign out i jmk data i berey nayelov naxord videon "ok"
-3.lucel xndiry vory beruma  netlify deployum "nooooo"
+3.lucel xndiry vory beruma  netlify deployum "ok"
+// xndiry data i fetch linelu jamanakn er vor galis er datark obj erp ayn pending erjimum er
+// solution
+//state.loading = true in extrareducers when data is pending
+
+
+
+// wraped AuthProfileDropDown in Portal now how to use that auth in different texer
+2rd parametry id em yntre inch anem urish ?
 
 

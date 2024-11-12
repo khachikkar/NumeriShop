@@ -6,10 +6,11 @@ export const FIRESTORE_PATH_NAMES = {
 }
 
 export const ROUTE_CONSTANTS = {
-    TEST: "/",
     LOGIN: "/login",
     REGISTER: "/register",
     CABINET: "/cabinet",
-    PROFILE:"/cabinet/profile"
+    PROFILE:"/cabinet/profile",
+    DASHBOARD: "/cabinet/dashboard",
+    GENERAL: "/"
 
 }

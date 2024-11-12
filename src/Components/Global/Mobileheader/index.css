@@ -1,0 +1,29 @@
+.mobile-header{
+    /*border: 1px solid red;*/
+    max-width: 500px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.339);
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.active {
+    color: white;
+    font-weight: 600;
+    background-color: rgba(51, 51, 51, 0.8);
+    backdrop-filter: blur(10px);
+
+}
+
+
+.mobile-header div {
+    /*border: 1px solid yellow;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+

@@ -15,6 +15,7 @@ import AuthProfileDropDown from '../../shared/AuthProfileDropDown'
 import {useSelector} from "react-redux";
 
 
+
 const MyHeader = () => {
 
 
@@ -22,7 +23,7 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 
 
   return (
-<div>
+<div className="headerCont">
 <Flex justify="space-between" align='center' className='myheader'>
 
 <div className='logoPart'>
@@ -32,10 +33,9 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
    
 </div>
 
-
-
 <div className='menuPart'>
 {/* Jamanakavor menu */}
+
 <Flex gap="middle" justify="space-between" align='center' >
     <span>Outlet</span>
     <span>T-shirts</span>
@@ -46,21 +46,24 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 </div>
 
 
-    <div className='navPart'>
+<div className='navPart'>
 
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
             <IoBagHandleOutline size={24}/>
             {2 > 0 && <span className="badge">2</span>}
         </div>
-        <IoMdHeartEmpty size={24}/>
+       <div className="icon-container"> <IoMdHeartEmpty size={24}/></div>
+
         {
-            isAuth ? <AuthProfileDropDown userProfileInfo={userData}/> : <Link to={ROUTE_CONSTANTS.LOGIN}>
+            isAuth ? <div className="icon-container"><AuthProfileDropDown userProfileInfo={userData} /></div> :
+            <Link to={ROUTE_CONSTANTS.LOGIN}>
                 <Button className='primaryButton' type='primary'>Sign In</Button>
             </Link>
         }
 
-    </div>
+</div>
+
 
 
 </Flex>

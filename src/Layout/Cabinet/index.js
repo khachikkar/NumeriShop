@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import {Outlet, useLocation, useNavigate} from 'react-router-dom'
 import "./index.css"
 
 
@@ -11,8 +11,8 @@ const {Sider, Content} = Layout
 
 const MenuItems = [
     {
-        label: "My Data Analitics",
-        key: "0"
+        label: "Dashboard",
+        key: ROUTE_CONSTANTS.DASHBOARD
       },
   {
     label: "Personal Information",
@@ -33,10 +33,18 @@ const MenuItems = [
 
 const CabinetLayout = () => {
 
+const {pathname} = useLocation()
+const navigate = useNavigate()
+
+
     const {
         token: { colorBgContainer, borderRadiusLG },
       } = theme.useToken();
 
+    const handleNavigate = ({key}) =>{
+        console.log(key)
+        navigate(key)
+    }
 
 
   return (
@@ -47,6 +55,8 @@ const CabinetLayout = () => {
 <Menu 
 mode='inline'
 items={MenuItems}
+onSelect ={handleNavigate}
+selectedKeys={[pathname]}
 />
 
 </Sider>

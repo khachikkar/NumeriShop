@@ -1,8 +1,7 @@
 import React from 'react'
+
 import {Avatar, Dropdown,  Typography, Flex, theme} from "antd"
-// import {signOut} from "firebase/auth"
 import { signOut } from 'firebase/auth'
-// import { auth } from '../../../services/firbase'
 import { auth } from '../../../services/firebase'
 import { useNavigate } from 'react-router-dom'
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
@@ -18,7 +17,7 @@ const {useToken} = theme
 
 const AuthProfileDropDown = ({userProfileInfo}) => {
 
-    console.log(userProfileInfo, "OOOOO")
+    console.table(userProfileInfo) // nice to view obj in table
 
 
 const navigate = useNavigate()
@@ -35,7 +34,7 @@ const dispatch = useDispatch()
       console.log(e, "sign out message")
     }
   }
-  
+
 
 const handlefirstLetters =  ({name, lastname})=>{
 
@@ -45,7 +44,7 @@ if(name && lastname){
 return "..."
 }
 
-  
+
   const items =[
       {
           label: "Profile",
@@ -62,7 +61,7 @@ return "..."
           label: "Log Out",
           key: "logout",
           onClick: handleSignOut
-  
+
       }
   ]
 
@@ -72,29 +71,26 @@ return "..."
 
 
 const {token} = useToken() // dizayni hamar e
-
-
-
 const {name, lastname, email, position, image} = userProfileInfo
 
 
-  return (
+  return  (
     <Dropdown
-     menu={{items}} 
+     menu={{items}}
     trigger={["click"]}
     dropdownRender={(menu)=>{
         return(
-            <div 
+            <div
             style={{
                 borderRadius: token.borderRadiusLG,
                 backgroundColor: token.colorBgElevated,
                 boxShadow: token.boxShadowSecondary,
               }}
             >
-                <Flex 
+                <Flex
                 style={{
                     padding:token.sizeMS
-                }} 
+                }}
                 vertical align='center' justify='center'>
                     <Avatar src={image || "https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"} />
                     <Text>{name}{lastname}</Text>
@@ -107,8 +103,8 @@ const {name, lastname, email, position, image} = userProfileInfo
     }}
     >
       <Avatar className='userProfileAvatar' size="default" >
-       
-     
+
+
 
       {image ? <img src={image} alt="Profile" style={{ width: '100px', height: '100px', borderRadius: '50%' }} /> : handlefirstLetters(userProfileInfo)}
 

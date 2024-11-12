@@ -1,9 +1,17 @@
-.myheader{
-    height: 60px;
+
+.headerCont{
+    width: 100%;
+    /*position: fixed;*/
     background-color: rgba(255, 255, 255, 0.339);
     backdrop-filter: blur(10px);
+    /*color: white;*/
+}
+
+
+.myheader{
+    height: 60px;
     width: 100%;
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid black;*/
     padding: 0 10px;
 }
 .logoPart img{
@@ -57,5 +65,8 @@
 @media screen and (max-width:500px) {
   .menuPart{
     display: none;
-  }  
+  }
+.icon-container{
+    display: none;
+}
 }

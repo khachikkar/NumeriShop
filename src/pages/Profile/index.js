@@ -111,8 +111,6 @@ try{
 // redux dispatch actions part
 
 
-
-
   return (
     <div className="ProfileCont">
 
@@ -148,6 +146,7 @@ label="Profile Image"
 >
 
 <Upload
+
 listType="picture-card"
 showUploadList={false}
 customRequest={handleUpload}
