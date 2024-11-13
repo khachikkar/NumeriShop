@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95587763-ac9c-48c0-a0b6-2e77ccd1a163" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AuthWraper/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthWraper/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Global/Header/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Global/Header/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/register/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Layout/Main/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/Main/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/firebase/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
       <workItem from="1730554132050" duration="9472000" />
       <workItem from="1731143873634" duration="2792000" />
       <workItem from="1731151805319" duration="2261000" />
-      <workItem from="1731227037483" duration="15514000" />
+      <workItem from="1731227037483" duration="23266000" />
     </task>
     <servers />
   </component>
