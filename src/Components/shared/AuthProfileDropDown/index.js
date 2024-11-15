@@ -54,7 +54,7 @@ return "..."
       {
           label: "Cabinet",
           key:"1",
-          onClick: ()=> navigate(ROUTE_CONSTANTS.CABINET)
+          onClick: ()=> navigate(ROUTE_CONSTANTS.DASHBOARD)
 
       },
       {

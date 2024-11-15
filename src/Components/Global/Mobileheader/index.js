@@ -6,6 +6,7 @@ import AuthProfileDropDown from "../../shared/AuthProfileDropDown";
 import {ROUTE_CONSTANTS} from "../../../core/constants/constants";
 import {useNavigate} from "react-router-dom";
 import {IoBagHandleOutline} from "react-icons/io5";
+import {Badge} from "antd";
 // import AuthProfileDropDown from "../../shared/AuthProfileDropDown";
 // import {useSelector} from "react-redux";
 
@@ -55,8 +56,9 @@ const MobileHeader = () => {
                 className={activeId === 'cart' ? 'active' : ''}
             >
                 <div className="icon-container">
-                    <IoBagHandleOutline size={24}/>
-                    {2 > 0 && <span className="badge">2</span>}
+                    <Badge count={3}>
+                        <IoBagHandleOutline size={24}/>
+                    </Badge>
                 </div>
                 Cart
             </div>

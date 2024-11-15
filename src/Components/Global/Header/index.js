@@ -1,7 +1,7 @@
 import React from 'react'
 import "./index.css"
 
-import {Button, Flex} from "antd"
+import {Badge, Button, Flex} from "antd"
 import logo from "../../../core/images/logo.png"
 import {Link} from "react-router-dom"
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
@@ -50,8 +50,10 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
-            <IoBagHandleOutline size={24}/>
-            {2 > 0 && <span className="badge">2</span>}
+            <Badge count={3}>
+                <IoBagHandleOutline size={24}/>
+            </Badge>
+
         </div>
        <div className="icon-container"> <IoMdHeartEmpty size={24}/></div>
 

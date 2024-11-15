@@ -1,7 +1,7 @@
 
 .headerCont{
     width: 100%;
-    /*position: fixed;*/
+    position: fixed;
     /*top: 0;*/
     background-color: rgba(255, 255, 255, 0.339);
     backdrop-filter: blur(10px);
@@ -45,27 +45,6 @@
 }
 
 
-.icon-container {
-    position: relative;
-    display: inline-block;
-}
-
-.badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 2px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 18px;
-    height: 18px;
-}
 
 @media screen and (max-width:500px) {
   .menuPart{

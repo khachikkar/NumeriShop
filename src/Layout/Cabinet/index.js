@@ -50,7 +50,7 @@ const navigate = useNavigate()
   return (
     <div className='Cabinetlayout'>
 
-<Sider collapsible width={200} style={{background:colorBgContainer}}>
+<Sider collapsible width={200} style={{ marginTop:"60px",background:colorBgContainer}}>
 
 <Menu 
 mode='inline'
@@ -61,7 +61,7 @@ selectedKeys={[pathname]}
 
 </Sider>
 
-<Layout style={{padding: "0 24px 24px"}}>
+<Layout style={{marginTop:"60px", padding: "0 24px 24px"}}>
 
 <Breadcrumb
 items={[{title:"Cabinet"}, {title:"Personal Information"}]}
