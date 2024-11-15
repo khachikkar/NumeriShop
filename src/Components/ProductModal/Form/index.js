@@ -20,6 +20,19 @@ return (
         <Input type="text" placeholder="Enter Product Name"/>
     </Form.Item>
 
+    <Form.Item //todo change to a select
+        label="Product Category"
+        name="productCategory"
+        rules={[
+            {
+                required: true,
+                message: "Please enter an Product Category",
+            }
+        ]}
+    >
+        <Input type="text" placeholder="Enter Product Category"/>
+    </Form.Item>
+
     <Form.Item
         label="Product Description"
         name="productDescription"

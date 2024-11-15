@@ -1,5 +1,13 @@
 .GenContainer{
-    margin-top: -60px;
+    /*margin-top: -60px;*/
     /*background-color: red;*/
     margin-bottom: 100px;
+}
+
+.products{
+    /*border: 1px solid blue;*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
