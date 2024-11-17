@@ -20,6 +20,21 @@ export const ROUTE_CONSTANTS = {
 
 
 
+
+export const PRODUCT_CATEGORY_OPTIONS={
+MAN:{
+    label: "man",
+},
+WOMAN:{
+    label: "woman",
+},
+KID:{
+    label: "kid",
+}
+
+}
+
+
 export const IMAGE_CAROUSEL_OPTIONS={
 
     CONTENT_STYLE_ONE: {
@@ -50,6 +65,20 @@ export const IMAGE_CAROUSEL_OPTIONS={
         backgroundImage: 'url("https://i.pinimg.com/736x/31/34/10/3134104e03a72e813024dea9407f549c.jpg")',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+    }
+}
+
+export const CAROUSEL_BUTTON_OPTIONS = {
+    MAN: {
+        text: "Uncover Man Styles",
+        buttonUrl: "/man"
+    },
+    WOMAN: {
+        text: "Uncover Woman Styles",
+        buttonUrl: "/woman"
+    },
+    KID: {
+        text: "Uncover Kid Styles",
+        buttonUrl: "/kid"
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Form, Input} from 'antd';
+import {Form, Input, Select, Space} from 'antd';
+import {PRODUCT_CATEGORY_OPTIONS} from "../../../core/constants/constants";
 
 
 const ModalForm = ({form, onFinish}) => {
@@ -26,11 +27,25 @@ return (
         rules={[
             {
                 required: true,
-                message: "Please enter an Product Category",
+                message: "Please choose an Product Category",
             }
         ]}
     >
-        <Input type="text" placeholder="Enter Product Category"/>
+        <Select placeholder="Product Category">
+            {
+                Object.values(PRODUCT_CATEGORY_OPTIONS).map(({label})=>{
+                    return(
+                        <Select.Option
+                            key={label}
+                            value={label}>
+                            <Space>
+                                {label}
+                            </Space>
+                        </Select.Option>
+                    )
+                })
+            }
+        </Select>
     </Form.Item>
 
     <Form.Item

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import TestPage from "../../pages/TestPage";
 import "./index.css"
 import ProductCard from "../../Components/TestCard"
 
