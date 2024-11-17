@@ -11,3 +11,18 @@
     gap: 20px;
     justify-content: center;
 }
+
+.vvi{
+    margin-top: 200px;
+    width: 100%;
+    background-color: red;
+    display: flex; /* Ensures video is properly aligned */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.vido{
+    width: 100%;
+    object-fit: cover;
+}

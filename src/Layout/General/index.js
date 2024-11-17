@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./index.css"
 import ProductCard from "../../Components/TestCard"
-
+import myvid from "../../core/images/myvid.mp4"
 
 
 import {collection, getDocs} from "firebase/firestore";
@@ -57,22 +57,40 @@ const [productList, setProductList] = useState([])
 
     return (
         <div className="GenContainer">
-           {/*<TestPage />*/}
-           {/* //to add a carouser*/}
-            <ImageCarousel />
-           <div>
-               <h1 style={{marginBottom:"30px"}}>Products by Users</h1>
-              <div className="products">
-                  {
-                      productList.map((prod)=>{
-                          return (
-                              <ProductCard key={prod.productId} product={prod} />
-                          )
-                      })
-                  }
-              </div>
-           </div>
+            {/*<TestPage />*/}
+            {/* //to add a carouser*/}
+            <ImageCarousel/>
+
+
+            {/* Product List*/}
+            <div>
+                <h1 style={{marginBottom: "30px"}}>Products by Users</h1>
+                <div className="products">
+                    {
+                        productList.map((prod) => {
+                            return (
+                                <ProductCard key={prod.productId} product={prod}/>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+
+
+            {/*Add a Description of Website like nice*/}
+
+
+            {/*//     Product Vieod show*/}
+            <div className="vvi">
+                <video className="vido" height="360" autoPlay loop muted>
+                    <source src={myvid} type="video/mp4"/>
+                </video>
+            </div>
+
         </div>
+
+
+
     )
 }
 
