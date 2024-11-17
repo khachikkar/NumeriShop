@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Typography, Rate, Space, Flex, Avatar} from 'antd';
+import {Button, Typography, Rate,  Flex, } from 'antd';
 
 
 
