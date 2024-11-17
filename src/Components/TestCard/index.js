@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Typography, Rate, Space, Avatar } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import {Typography, Avatar, Flex, Rate, Button, Space} from 'antd';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
 
-const { Meta } = Card;
-const { Text } = Typography;
+import "./index.css"
 
+
+const { Text } = Typography;
 const ProductCard = ({ product }) => {
     const {
-        // productCategory, toadd
+        // productCategory, todo
         productDescription,
         productImageUrl,
         productName,
         productPrice,
         productRate,
-        // productSaledPrice,
-        // productSizes,
+        productSaledPrice,
+        productSizes,
         userId
     } = product;
 
@@ -44,44 +44,49 @@ const ProductCard = ({ product }) => {
     }, [userId]);
 
     return (
-        <Card
-            hoverable
-            style={{ width: 300 }}
-            cover={
-                <img
-                    alt={productName}
-                    src={productImageUrl}
-                    style={{ height: 200, objectFit: 'cover' }}
-                />
-            }
-            actions={[
-                <Button
-                    type="primary"
-                    icon={<ShoppingCartOutlined />}
-                    style={{ backgroundColor: '#000', border: 'none' }}
-                >
-                    Add to Cart
-                </Button>,
-            ]}
-        >
-            <Meta
-                title={<Text strong>{productName}</Text>}
-                description={
-                    <Space direction="vertical" size="small">
-                        <Text type="secondary">{productDescription}</Text>
+        <div>
+            {user && (
+
+                <Flex vertical className="productContainer">
+                    <div className="prodimgCont">
+                        <img className="prodimg" src={productImageUrl} alt={productImageUrl}/>
+                    </div>
+                    <Flex horizontal justify="space-between" align="center" >
+                        <Text style={{fontSize:"1.4rem"}}>{productName}</Text>
                         <Rate disabled defaultValue={productRate} />
-                        <Text strong style={{ fontSize: '1.2em' }}>${productPrice}</Text>
-                        {user && (
-                            <div>
-                                <Avatar src={user.image || null} />
-                                <Text>{user.name} {user.lastname}</Text>
-                            </div>
-                        )}
-                    </Space>
-                }
-            />
-        </Card>
-    );
+                    </Flex>
+
+                    <Flex horizontal justify="space-between" align="center" style={{marginBottom:"10px"}}>
+                        <Text type="secondary" style={{fontSize:"0.9rem"}}>{productDescription}</Text>
+                        <Text type="secondary" style={{fontSize:"0.7rem"}}>{productSizes}</Text>
+
+                    </Flex>
+
+                    <Flex gap="10px" horizontal  align="center" style={{marginBottom:"10px"}}>
+                        <Text style={{fontSize:"1.8rem"}}>${productSaledPrice}</Text>
+                        <Text type="danger" className="lined" style={{fontSize:"1.2rem"}}>${productPrice}</Text>
+                    </Flex>
+
+                    <Flex horizontal justify="space-between">
+                        <Button style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
+                        <Button>View more</Button>
+                    </Flex>
+
+
+                    <Flex horizontal  align="center" gap="10px">
+                        <Text type="secondary" style={{fontSize:"0.9rem"}}>Product By:</Text>
+                        <Space>
+                            <Avatar src={user.image || null}/>
+                            <Text>{user.name} {user.lastname}</Text>
+                        </Space>
+                    </Flex>
+                </Flex>
+
+
+            )}
+        </div>
+    )
+
 };
 
 export default ProductCard;

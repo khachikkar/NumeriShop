@@ -29,6 +29,7 @@ import {fetchUserProfileInfo} from "./state-management/slices/userProfile";
 import LoadingWraper from "./Components/LoadingWraper";
 import General from "./Layout/General";
 import Dashboard from "./Components/Dashboard";
+import MyProducts from "./Components/MyProducts";
 
 
 
@@ -67,6 +68,8 @@ function App() {
 
                             <Route path={ROUTE_CONSTANTS.PROFILE} element={<Profile/>}/>
                             <Route path={ROUTE_CONSTANTS.DASHBOARD} element={<Dashboard/>}/>
+                            <Route path={ROUTE_CONSTANTS.MYPRODUCTS} element={<MyProducts/>}/>
+
 
 
 

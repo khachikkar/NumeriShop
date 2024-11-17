@@ -8,10 +8,11 @@ import ProductCard from "../../Components/TestCard"
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../services/firebase";
 import {FIRESTORE_PATH_NAMES} from "../../core/constants/constants";
+import ImageCarousel from "../../Components/ImageCarousel";
 
 
 
-const getProductList = async()=>{
+export const getProductList = async()=>{
     try{
         //// what to write?
         const product_list = collection(db, FIRESTORE_PATH_NAMES.PRODUCTS)
@@ -34,6 +35,10 @@ const General = ()=>{
 
 //get data
 const [productList, setProductList] = useState([])
+
+
+
+
     useEffect(() => {
         const fetchProds =async()=>{
             const prodList = await getProductList()
@@ -53,7 +58,9 @@ const [productList, setProductList] = useState([])
 
     return (
         <div className="GenContainer">
-           <TestPage />
+           {/*<TestPage />*/}
+           {/* //to add a carouser*/}
+            <ImageCarousel />
            <div>
                <h1 style={{marginBottom:"30px"}}>Products by Users</h1>
               <div className="products">

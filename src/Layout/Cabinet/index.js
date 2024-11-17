@@ -19,8 +19,8 @@ const MenuItems = [
     key: ROUTE_CONSTANTS.PROFILE
   },
   {
-    label: "Payment Information",
-    key: "1"
+    label: "My Products",
+      key: ROUTE_CONSTANTS.MYPRODUCTS
   },
   {
     label: "Settings",
@@ -50,7 +50,7 @@ const navigate = useNavigate()
   return (
     <div className='Cabinetlayout'>
 
-<Sider collapsible width={200} style={{ marginTop:"60px",background:colorBgContainer}}>
+<Sider collapsible width={200} style={{ background:colorBgContainer}}>
 
 <Menu 
 mode='inline'
@@ -61,7 +61,7 @@ selectedKeys={[pathname]}
 
 </Sider>
 
-<Layout style={{marginTop:"60px", padding: "0 24px 24px"}}>
+<Layout style={{padding: "0 24px 24px"}}>
 
 <Breadcrumb
 items={[{title:"Cabinet"}, {title:"Personal Information"}]}
