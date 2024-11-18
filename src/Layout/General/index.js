@@ -8,6 +8,8 @@ import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../services/firebase";
 import {FIRESTORE_PATH_NAMES} from "../../core/constants/constants";
 import ImageCarousel from "../../Components/ImageCarousel";
+import {Button, Flex, Typography} from "antd";
+import Filter from "../../Components/Filter";
 
 
 
@@ -52,8 +54,8 @@ const [productList, setProductList] = useState([])
 
 
 
-
-
+const {Text} = Typography
+const style = {backgroundColor:"black", color:"white" }
 
     return (
         <div className="GenContainer">
@@ -63,8 +65,10 @@ const [productList, setProductList] = useState([])
 
 
             {/* Product List*/}
-            <div>
-                <h1 style={{marginBottom: "30px"}}>Products by Users</h1>
+            {/*Make Product List as a separate Component*/}
+
+                <h1 className="prodbuser">Products by Users</h1>
+                <Filter />
                 <div className="products">
                     {
                         productList.map((prod) => {
@@ -74,24 +78,37 @@ const [productList, setProductList] = useState([])
                         })
                     }
                 </div>
-            </div>
+
 
 
             {/*Add a Description of Website like nice*/}
 
+                <Flex className="midl">
+                    <Text style={{fontWeight: "600", fontSize: "16px"}}>Just in</Text>
+                    <Text style={{fontWeight: "900", fontSize: "76px"}}>YERE XS</Text>
+                    <Text style={{
+                        marginBottom: "15px",
+                        width: "416px",
+                        textAlign: "center",
+                        fontWeight: "400",
+                        fontSize: "18px"
+                    }}>Ahead of its time and disruptive by design, the iconic YERE XS pushes the boundaries of style
+                        with its silhouette and future-forward form.</Text>
+                    <Button size="large" type="primary" style={style}>Shop now</Button>
+                </Flex>
 
-            {/*//     Product Vieod show*/}
-            <div className="vvi">
-                <video className="vido" height="360" autoPlay loop muted>
-                    <source src={myvid} type="video/mp4"/>
-                </video>
+
+                {/*//     Product Vieod show*/}
+                <div className="vvi">
+                    <video className="vido" height="360" autoPlay loop muted>
+                        <source src={myvid} type="video/mp4"/>
+                    </video>
+                </div>
+
             </div>
 
-        </div>
 
+            )
+            }
 
-
-    )
-}
-
-export default General
+            export default General

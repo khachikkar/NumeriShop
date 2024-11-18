@@ -4,16 +4,27 @@
     margin-bottom: 100px;
 }
 
-.products{
-    /*border: 1px solid blue;*/
+/*.products{*/
+/*    !*border: 1px solid blue;*!*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 20px;*/
+/*    justify-content: center;*/
+/*}*/
+
+
+.prodbuser{
+    margin-top: 24px;
+    margin-bottom: 32px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
 }
 
+
 .vvi{
-    margin-top: 200px;
+    margin-top: 50px;
     width: 100%;
     background-color: red;
     display: flex; /* Ensures video is properly aligned */
@@ -25,4 +36,44 @@
 .vido{
     width: 100%;
     object-fit: cover;
+}
+
+
+
+
+.midl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 5px;
+    align-items: center;
+    margin-top: 50px;
+    /*background-color: red;*/
+    height: 300px;
+
+    span{
+        line-height: 1;
+    }
+
+}
+
+
+/*Product Cont must moved on its own component style file*/
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dynamic columns */
+    gap: 20px; /* Space between grid items */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    place-items: center;
+}
+
+/* For very small screens (max-width: 480px) */
+@media (max-width: 660px) {
+    .products {
+        grid-template-columns: 1fr; /* Single column layout */
+
+    }
 }
