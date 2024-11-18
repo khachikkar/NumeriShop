@@ -77,3 +77,42 @@
 
     }
 }
+
+
+.categoryImageContainer{
+    margin-top: 24px;
+    /*border: 1px solid red;*/
+    width: calc(100% / 3);
+    box-sizing: border-box;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+img:hover{
+    transform: scale(1.1);
+
+}
+
+    h2{
+        position: absolute;
+        z-index: 2;
+        color: white;
+        font-size: 30px;
+    }
+
+    h2:hover{
+        text-decoration: underline;
+    }
+}

@@ -7,7 +7,33 @@
 
 
 
-// wraped AuthProfileDropDown in Portal now how to use that auth in different texer
-2rd parametry id em yntre inch anem urish ?
+// wraped AuthProfileDropDown in Portal now how to use that auth in different texer "ok"
+2rd parametry id em yntre inch anem urish ? "ok"
+
+
+// Todo untill finish of Traing
+
+1. /// Add a Product Detail Page
+    - show product details
+2. ///Add a Suggested Products Page
+    -random 5 products
+3. //Add a Cart Page
+    - add product count
+    -delate product with redux
+4. //Add a Loved Page
+    -delate from loved
+5. //Add a Add to cart functiuonlity
+    - add a add to cart with redux
+6. //Profile My Products
+    -add a edit product details
+    -delate product from shop
+7. //Add a Checkout Page
+    -integrate a checkout system or s
+8. //Add a Settings page (optional)
+9. //Add a Statistic Page
+    - add a shopings details counts, prices, spended money
+10. //Add a Footer
+
+
 
 

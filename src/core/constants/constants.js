@@ -82,3 +82,19 @@ export const CAROUSEL_BUTTON_OPTIONS = {
         buttonUrl: "/kid"
     }
 }
+
+
+export const CATEGORIES_IMAGES_OPTIONS={
+    MAN: {
+        text: "Man",
+        imageUrl: "https://i.pinimg.com/736x/d5/7f/98/d57f98c76745edc62467f28f578d539b.jpg"
+    },
+    WOMAN: {
+        text: "Woman",
+        imageUrl: "https://i.pinimg.com/736x/b5/3d/00/b53d00bc1eaf036569e448368e19baa3.jpg"
+    },
+    KID: {
+        text: "Kid",
+        imageUrl: "https://i.pinimg.com/736x/03/ca/57/03ca57be52ed19a16c949082f2804989.jpg"
+    }
+}
