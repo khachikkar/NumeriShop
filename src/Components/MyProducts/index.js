@@ -12,14 +12,14 @@ const MyProducts = () => {
     const {authUserProfile: {userData:{uid}}} = useSelector(store=>store.userProfile)
 
     const dispatch = useDispatch();
-    const {items: products, status} = useSelector((store)=> store.products)
+    const {items: products} = useSelector((store)=> store.products)
 
 
     useEffect(() => {
 
         dispatch(getProducts());
 
-    }, []);
+    }, [dispatch]);
 
     //
     // useEffect(() => {

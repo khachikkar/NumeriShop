@@ -38,6 +38,9 @@
     - add a shop details counts, prices, spend money
 10. //Add a Footer
 
+OPTIONAL I ADD
+
+created Fetch Product List in state and stored products in store, in future integrate with Cart
 
 
 

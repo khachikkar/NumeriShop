@@ -16,6 +16,8 @@ import {getProducts} from "../../state-management/slices/ProductSlice";
 
 const General = ()=>{
 
+
+
 const dispatch = useDispatch();
 const {items: products, status} = useSelector((store)=> store.products)
 
@@ -24,7 +26,7 @@ const {items: products, status} = useSelector((store)=> store.products)
 
             dispatch(getProducts());
 
-    }, []);
+    }, [dispatch]);
 
 
 
