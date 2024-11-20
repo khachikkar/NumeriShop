@@ -1,48 +1,48 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "./index.css"
 import ProductCard from "../../Components/TestCard"
 import myvid from "../../core/images/myvid.mp4"
 
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "../../services/firebase";
-import {CATEGORIES_IMAGES_OPTIONS, FIRESTORE_PATH_NAMES} from "../../core/constants/constants";
+import {CATEGORIES_IMAGES_OPTIONS} from "../../core/constants/constants";
 import ImageCarousel from "../../Components/ImageCarousel";
 import {Button, Flex, Typography} from "antd";
 import Filter from "../../Components/Filter";
+import {useDispatch, useSelector} from "react-redux";
+import {getProducts} from "../../state-management/slices/ProductSlice";
 
 
 
-export const getProductList = async()=>{
-    try{
-        //// what to write?
-        const product_list = collection(db, FIRESTORE_PATH_NAMES.PRODUCTS)
-        const list = await getDocs(product_list);
-        const products = list.docs.map(doc=>({
-            ...doc.data()
-        }))
 
-        console.log(products)
-        return products;
-
-    }catch(e){
-        console.log(e)
-    }
-}
 
 const General = ()=>{
 
-//get data
-const [productList, setProductList] = useState([])
+const dispatch = useDispatch();
+const {items: products, status} = useSelector((store)=> store.products)
 
-useEffect(() => {
-        const fetchProds =async()=>{
-            const prodList = await getProductList()
-            setProductList(prodList)
-        }
 
-        fetchProds()
+    useEffect(() => {
+
+            dispatch(getProducts());
 
     }, []);
+
+
+
+
+console.log(products, status, "OOOO")
+
+//get data
+// const [productList, setProductList] = useState([])
+//
+// useEffect(() => {
+//         const fetchProds =async()=>{
+//             const prodList = await getProductList()
+//             setProductList(prodList)
+//         }
+//
+//         fetchProds()
+//
+//     }, []);
 
 const {Text} = Typography
 const style = {backgroundColor:"black", color:"white" }
@@ -61,7 +61,7 @@ return (
                 {
                     Object.values(CATEGORIES_IMAGES_OPTIONS).map(({text, imageUrl})=>{
                         return(
-                            <div className="categoryImageContainer">
+                            <div key={text} className="categoryImageContainer">
                               <img src={imageUrl} alt={text} />
                                <h2>{text}</h2>
                             </div>
@@ -77,7 +77,7 @@ return (
                 <Filter />
                 <div className="products">
                     {
-                        productList.map((prod) => {
+                        products.map((prod) => {
                             return (
                                 <ProductCard key={prod.productId} product={prod}/>
                             )

@@ -10,6 +10,10 @@
 }
 
 
+.men{
+    display: none;
+}
+
 .myheader{
     height: 60px;
     width: 100%;
@@ -50,6 +54,11 @@
   .menuPart{
     display: none;
   }
+
+ .men{
+     display: block;
+ }
+
 .icon-container{
     display: none;
 }

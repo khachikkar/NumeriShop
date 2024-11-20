@@ -17,7 +17,7 @@ const {useToken} = theme
 
 const AuthProfileDropDown = ({userProfileInfo}) => {
 
-    console.table(userProfileInfo) // nice to view obj in table
+    // console.table(userProfileInfo) // nice to view obj in table
 
 
 const navigate = useNavigate()

@@ -1,31 +1,40 @@
-import React, {useState, useEffect} from 'react';
-import {getProductList} from "../../Layout/General";
-import {useSelector} from "react-redux";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import ProductCardDashboard from "../ProductCardDashboard";
 import {Flex} from "antd";
+import {getProducts} from "../../state-management/slices/ProductSlice";
 
 const MyProducts = () => {
 
 
 //get data
-    const [productList, setProductList] = useState([])
+//     const [productList, setProductList] = useState([])
     const {authUserProfile: {userData:{uid}}} = useSelector(store=>store.userProfile)
 
+    const dispatch = useDispatch();
+    const {items: products, status} = useSelector((store)=> store.products)
 
 
     useEffect(() => {
-        const fetchProds =async()=>{
-            const prodList = await getProductList()
-            setProductList(prodList)
-        }
 
-        fetchProds()
+        dispatch(getProducts());
 
     }, []);
 
+    //
+    // useEffect(() => {
+    //     const fetchProds =async()=>{
+    //         const prodList = await getProductList()
+    //         setProductList(prodList)
+    //     }
+    //
+    //     fetchProds()
+    //
+    // }, []);
 
 
-   const myproducts = productList.filter(prod=> prod.userId === uid )
+
+   const myproducts = products.filter(prod=> prod.userId === uid )
 
     console.log(myproducts, "KK")
 

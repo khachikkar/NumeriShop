@@ -36,17 +36,18 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 <div className='menuPart'>
 {/* Jamanakavor menu */}
 
-<Flex gap="middle" justify="space-between" align='center' >
-    <span>Outlet</span>
-    <span>T-shirts</span>
-    <span>About</span>
-    <span>Designs</span>
-    {/* Jamanakavor navpart */}
-</Flex>
+    <Flex gap="middle" justify="space-between" align='center'>
+        <span>Outlet</span>
+        <span>Man</span>
+        <span>Woman</span>
+        <span>Kids</span>
+        <span>Brand T-shirts</span>
+        {/* Jamanakavor navpart */}
+    </Flex>
 </div>
 
 
-<div className='navPart'>
+    <div className='navPart'>
 
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
@@ -56,6 +57,7 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 
         </div>
        <div className="icon-container"> <IoMdHeartEmpty size={24}/></div>
+        <div className="men">Menu</div>
 
         {
             isAuth ? <div className="icon-container"><AuthProfileDropDown userProfileInfo={userData} /></div> :

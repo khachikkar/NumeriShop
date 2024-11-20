@@ -4,6 +4,7 @@ import MyHeader from '../../Components/Global/Header'
 import { Outlet } from 'react-router-dom'
 import "./index.css"
 import MobileHeader from "../../Components/Global/Mobileheader";
+import MyFooter from "../../Components/Footer";
 const MainLayout = () => {
   return (
       <div className='MainLayout'>
@@ -14,6 +15,7 @@ const MainLayout = () => {
           <div className="mobileH">
               <MobileHeader/>
           </div>
+          <MyFooter />
       </div>
   )
 }
