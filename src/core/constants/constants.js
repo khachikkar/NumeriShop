@@ -15,7 +15,9 @@ export const ROUTE_CONSTANTS = {
     DASHBOARD: "/cabinet/dashboard",
     MYPRODUCTS: "/cabinet/myproducts",
     CART: "/cart",
-    GENERAL: "/"
+    GENERAL: "/",
+
+    PRODUCT_DETAILS: "/product/:productId"
 
 }
 

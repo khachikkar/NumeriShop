@@ -69,7 +69,7 @@ function App() {
                         <Route path={ROUTE_CONSTANTS.CART} element={<Cart/>} />
 
                         {/*Product Deatils*/}
-                        <Route path="/product/:productId" element={<ProductDetails />} />
+                        <Route path={ROUTE_CONSTANTS.PRODUCT_DETAILS} element={<ProductDetails />} />
 
                         <Route path={ROUTE_CONSTANTS.CABINET}
                                element={isAuth ? <CabinetLayout/> : <Navigate to={ROUTE_CONSTANTS.LOGIN}/>}>

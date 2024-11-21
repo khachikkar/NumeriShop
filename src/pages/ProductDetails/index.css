@@ -2,9 +2,5 @@
     /*background-color: red;*/
     padding: 8px;
 
-    img{
-        max-width: 400px;
-        height: 400px;
-        object-fit: cover;
-    }
+
 }

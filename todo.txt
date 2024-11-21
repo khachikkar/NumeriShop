@@ -18,6 +18,8 @@
 5. //Add an Add to cart functionality //done (kisat)
     - add an add to cart with redux // done
 
+1. /// Add a Product Detail Page  //done
+    - show product details //done
 
 
 
@@ -25,8 +27,7 @@
 // Todo untill finish of Traing
 
 
-1. /// Add a Product Detail Page
-    - show product details
+
 
 1.1 /// modify a main page categories
 
@@ -43,12 +44,14 @@
 4. //Add a Loved Page
     -delete from loved
 
-
-
+10. //Add a Footer
 
 6. //Profile My Products
     -add an edit product details
     -delete product from shop
+
+
+
 
 
 
@@ -62,7 +65,7 @@
     - add a shop details counts, prices, spend money
 
 
-10. //Add a Footer
+
 
 11. //Add a Shipping Proccess Status Page (very optional)
 
