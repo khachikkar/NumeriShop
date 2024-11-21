@@ -30,6 +30,7 @@ import LoadingWraper from "./Components/LoadingWraper";
 import General from "./Layout/General";
 import Dashboard from "./Components/Dashboard";
 import MyProducts from "./Components/MyProducts";
+import Cart from "./pages/Cart";
 
 
 
@@ -63,12 +64,18 @@ function App() {
 
                         <Route path={ROUTE_CONSTANTS.GENERAL} element={<General />} />
 
+                        {/*    Cart   */}
+                        <Route path={ROUTE_CONSTANTS.CART} element={<Cart/>} />
+
+
                         <Route path={ROUTE_CONSTANTS.CABINET}
                                element={isAuth ? <CabinetLayout/> : <Navigate to={ROUTE_CONSTANTS.LOGIN}/>}>
 
                             <Route path={ROUTE_CONSTANTS.PROFILE} element={<Profile/>}/>
                             <Route path={ROUTE_CONSTANTS.DASHBOARD} element={<Dashboard/>}/>
                             <Route path={ROUTE_CONSTANTS.MYPRODUCTS} element={<MyProducts/>}/>
+
+
 
 
 

@@ -5,6 +5,8 @@ import { db } from "../../services/firebase";
 import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
 
 import "./index.css"
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../state-management/slices/CartSlice";
 
 
 const { Text } = Typography;
@@ -18,7 +20,8 @@ const ProductCard = ({ product }) => {
         productRate,
         productSaledPrice,
         productSizes,
-        userId
+        userId,
+        productId
     } = product;
 
     const [user, setUser] = useState(null);
@@ -42,6 +45,21 @@ const ProductCard = ({ product }) => {
             fetchUser();
         }
     }, [userId]);
+
+
+//     add product in cart
+
+const dispatch = useDispatch();
+
+
+const handleProductinCart = (id)=>{
+    console.log("hello", id)
+    dispatch(addToCart(id))
+}
+
+
+
+
 
     return (
         <div>
@@ -68,7 +86,7 @@ const ProductCard = ({ product }) => {
                     </Flex>
 
                     <Flex horizontal justify="space-between">
-                        <Button style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
+                        <Button onClick={()=>handleProductinCart(productId)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
                         <Button>View more</Button>
                     </Flex>
 

@@ -4,7 +4,7 @@ import { HomeOutlined,  UserOutlined,   HeartOutlined } from '@ant-design/icons'
 import {useSelector} from "react-redux";
 import AuthProfileDropDown from "../../shared/AuthProfileDropDown";
 import {ROUTE_CONSTANTS} from "../../../core/constants/constants";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {IoBagHandleOutline} from "react-icons/io5";
 import {Badge} from "antd";
 // import AuthProfileDropDown from "../../shared/AuthProfileDropDown";
@@ -56,9 +56,12 @@ const MobileHeader = () => {
                 className={activeId === 'cart' ? 'active' : ''}
             >
                 <div className="icon-container">
-                    <Badge count={3}>
-                        <IoBagHandleOutline size={24}/>
-                    </Badge>
+                    <Link to={ROUTE_CONSTANTS.CART}>
+                        <Badge count={3}>
+                            <IoBagHandleOutline size={24}/>
+                        </Badge>
+                    </Link>
+
                 </div>
                 Cart
             </div>

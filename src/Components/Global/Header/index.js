@@ -51,9 +51,11 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
-            <Badge count={3}>
-                <IoBagHandleOutline size={24}/>
-            </Badge>
+           <Link to={ROUTE_CONSTANTS.CART}>
+               <Badge count={3}>
+                   <IoBagHandleOutline size={24}/>
+               </Badge>
+           </Link>
 
         </div>
        <div className="icon-container"> <IoMdHeartEmpty size={24}/></div>
