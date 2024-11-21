@@ -7,6 +7,7 @@ import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
 import "./index.css"
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../state-management/slices/CartSlice";
+import {useNavigate} from "react-router-dom";
 
 
 const { Text } = Typography;
@@ -52,20 +53,25 @@ const ProductCard = ({ product }) => {
 const dispatch = useDispatch();
 
 
-const handleProductinCart = (prouct)=>{
+const handleProductinCart = (product)=>{
     console.log("hello", product)
     dispatch(addToCart(product))
 }
 
+const navigate= useNavigate()
 
-
+//     Added functionality to navigate Product Detail page and pass a product as a props
+const handleProductDetails = ()=>{
+    console.log("hello")
+    navigate(`/product/${product.productId}`, {state:{product}})
+}
 
 
     return (
         <div>
             {user && (
 
-                <Flex vertical className="productContainer">
+                <Flex  vertical className="productContainer">
                     <div className="prodimgCont">
                         <img className="prodimg" src={productImageUrl} alt={productImageUrl}/>
                     </div>
@@ -87,7 +93,7 @@ const handleProductinCart = (prouct)=>{
 
                     <Flex horizontal justify="space-between">
                         <Button onClick={()=>handleProductinCart(product)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
-                        <Button>View more</Button>
+                        <Button onClick={handleProductDetails}>View more</Button>
                     </Flex>
 
 

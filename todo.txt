@@ -4,11 +4,22 @@
 // xndiry data i fetch linelu jamanakn er vor galis er datark obj erp ayn pending erjimum er
 // solution
 //state.loading = true in extrareducers when data is pending
-
-
-
 // wraped AuthProfileDropDown in Portal now how to use that auth in different texer "ok"
 2rd parametry id em yntre inch anem urish ? "ok"
+
+
+
+// DONED WORKS
+
+3. //Add a Cart Page //done
+    - add product count //done
+    -delete product with redux //done
+
+5. //Add an Add to cart functionality //done (kisat)
+    - add an add to cart with redux // done
+
+
+
 
 
 // Todo untill finish of Traing
@@ -27,16 +38,12 @@
     -random 5 products
 
 
-3. //Add a Cart Page //done
-    - add product count //done
-    -delete product with redux //done
 
 
 4. //Add a Loved Page
     -delete from loved
 
-5. //Add an Add to cart functionality //done (kisat)
-    - add an add to cart with redux // done
+
 
 
 6. //Profile My Products
@@ -56,7 +63,16 @@
 
 
 10. //Add a Footer
-11. Add a Shipping Proccess Status Page (very optional)
+
+11. //Add a Shipping Proccess Status Page (very optional)
+
+
+
+
+
+
+
+
 
 OPTIONAL I ADD
 
