@@ -16,17 +16,20 @@
 
 1. /// Add a Product Detail Page
     - show product details
+
 1.1 /// modify a main page categories
+
 1.2 /// add a filter functionality
+
 1.3(optional) add a search functionality
+
 2. ///Add a Suggested Products Page
     -random 5 products
 
 
 3. //Add a Cart Page //done
-
-    - add product count
-    -delete product with redux
+    - add product count //done
+    -delete product with redux //done
 
 
 4. //Add a Loved Page
@@ -41,16 +44,19 @@
     -delete product from shop
 
 
+
+
 7. //Add a Checkout Page
     -integrate a checkout system or s
 
 8. //Add a Settings page (optional)
 
-9. //Add a Statistic Page
+9. //Add a Statistic Page (optional)
     - add a shop details counts, prices, spend money
 
 
 10. //Add a Footer
+11. Add a Shipping Proccess Status Page (very optional)
 
 OPTIONAL I ADD
 
