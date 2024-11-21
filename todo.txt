@@ -21,21 +21,35 @@
 1.3(optional) add a search functionality
 2. ///Add a Suggested Products Page
     -random 5 products
-3. //Add a Cart Page
+
+
+3. //Add a Cart Page //done
+
     - add product count
     -delete product with redux
+
+
 4. //Add a Loved Page
     -delete from loved
-5. //Add an Add to cart functionality
-    - add an add to cart with redux
+
+5. //Add an Add to cart functionality //done (kisat)
+    - add an add to cart with redux // done
+
+
 6. //Profile My Products
     -add an edit product details
     -delete product from shop
+
+
 7. //Add a Checkout Page
     -integrate a checkout system or s
+
 8. //Add a Settings page (optional)
+
 9. //Add a Statistic Page
     - add a shop details counts, prices, spend money
+
+
 10. //Add a Footer
 
 OPTIONAL I ADD
