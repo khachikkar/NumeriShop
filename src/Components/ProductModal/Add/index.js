@@ -35,6 +35,7 @@ const handleCreateProduct = async(values)=>{
     const ProductModel = {
         userId: userData.uid,
         productId,
+        count: 1,
         ...values
     }
 

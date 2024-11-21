@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         productSaledPrice,
         productSizes,
         userId,
-        productId
+        // productId
     } = product;
 
     const [user, setUser] = useState(null);
@@ -52,9 +52,9 @@ const ProductCard = ({ product }) => {
 const dispatch = useDispatch();
 
 
-const handleProductinCart = (id)=>{
-    console.log("hello", id)
-    dispatch(addToCart(id))
+const handleProductinCart = (prouct)=>{
+    console.log("hello", product)
+    dispatch(addToCart(product))
 }
 
 
@@ -86,7 +86,7 @@ const handleProductinCart = (id)=>{
                     </Flex>
 
                     <Flex horizontal justify="space-between">
-                        <Button onClick={()=>handleProductinCart(productId)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
+                        <Button onClick={()=>handleProductinCart(product)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
                         <Button>View more</Button>
                     </Flex>
 

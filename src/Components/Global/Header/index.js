@@ -22,7 +22,15 @@ const MyHeader = () => {
 const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfile)
 
 
-  return (
+//   get data for badge
+const {cart} = useSelector(store => store.cart)
+
+
+console.log(cart,"IOIOIO")
+
+
+
+return (
 <div className="headerCont">
 <Flex justify="space-between" align='center' className='myheader'>
 
@@ -52,7 +60,7 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
            <Link to={ROUTE_CONSTANTS.CART}>
-               <Badge count={3}>
+               <Badge count={cart.length}>
                    <IoBagHandleOutline size={24}/>
                </Badge>
            </Link>

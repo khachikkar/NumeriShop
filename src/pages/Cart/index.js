@@ -11,34 +11,17 @@ const {Text} = Typography;
 const Cart = ()=>{
 
 const {cart} = useSelector(store => store.cart)
-const {items} = useSelector(store => store.products)
+// const {items} = useSelector(store => store.products)
 
 
 //     Add CartItems in Local storage that dont losse a data after refresh
 
-const [CartItems, setCartItems] = useState([])
 
-    useEffect(() => {
-        const SavedCartItems = JSON.parse(localStorage.getItem("CartItems")) || []
-        if(SavedCartItems.length > 0){
-            setCartItems(SavedCartItems)
-        }else{
-            const filteredItems = items.filter(product=> cart.includes(product.productId))
-            setCartItems(filteredItems)
-        }
-    }, []);
-
-    useEffect(() => {
-        // Save CartItems to localStorage whenever it changes
-        if (CartItems.length > 0) {
-            localStorage.setItem("CartItems", JSON.stringify(CartItems));
-        }
-    }, [CartItems]);
 
 // const CartItems = items.filter(product=> cart.includes(product.productId))
 
 console.log(cart, "UUU")
-console.log(CartItems,"PPPPP")
+// console.log(CartItems,"PPPPP")
 
 
 
@@ -77,6 +60,7 @@ const columns = [
         title: 'Price',
         dataIndex: 'price',
         key: 'price',
+        render : (text)=> <span>$ {text}</span>
     },
     {
         title: 'Actions',
@@ -85,12 +69,12 @@ const columns = [
     }
 ]
 
-const data = CartItems.map(item=>{
+const data = cart.map(item=>{
     return {
         key: item.id,
         image: item.productImageUrl,
         name: item.productName,
-        count: "1",
+        count: item.count ,
         description: item.productDescription,
         price: item.productSaledPrice,
         actions: []
@@ -108,4 +92,5 @@ return (
     )
 }
 
-export default Cart;
+
+export default Cart
