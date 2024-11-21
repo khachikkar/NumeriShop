@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import "./index.css"
-import {Typography} from "antd";
-import {useSelector} from "react-redux";
+import {Typography, Table, Button, Flex} from "antd";
+import {useDispatch, useSelector} from "react-redux";
+import {removeFromCart} from "../../state-management/slices/CartSlice";
 
-import {Table} from "antd";
 const {Text} = Typography;
 
 
@@ -11,17 +11,8 @@ const {Text} = Typography;
 const Cart = ()=>{
 
 const {cart} = useSelector(store => store.cart)
-// const {items} = useSelector(store => store.products)
+const dispatch = useDispatch();
 
-
-//     Add CartItems in Local storage that dont losse a data after refresh
-
-
-
-// const CartItems = items.filter(product=> cart.includes(product.productId))
-
-console.log(cart, "UUU")
-// console.log(CartItems,"PPPPP")
 
 
 
@@ -52,14 +43,20 @@ const columns = [
         key: 'description',
     },
     {
+        title: 'Price',
+        dataIndex: 'price',
+        key: 'price',
+        render : (text)=> <span>$ {text}</span>
+    },
+    {
         title: 'Count',
         dataIndex: 'count',
         key: 'count',
     },
     {
-        title: 'Price',
-        dataIndex: 'price',
-        key: 'price',
+        title: 'Last Price',
+        dataIndex: 'lastprice',
+        key: 'lastprice',
         render : (text)=> <span>$ {text}</span>
     },
     {
@@ -77,19 +74,37 @@ const data = cart.map(item=>{
         count: item.count ,
         description: item.productDescription,
         price: item.productSaledPrice,
-        actions: []
+        lastprice: (item.productSaledPrice * item.count),
+        actions: [<Button onClick={()=>dispatch(removeFromCart(item.id)) }>X</Button>]
     }
 })
 
 
 
 
+
+const price = cart.reduce((acc, curr)=> acc + (Number( curr.productSaledPrice) * curr.count) , 0)
+const shippingFee = 3
+const TOTAL_PRICE = price + shippingFee
+    console.log(price, "OOOO")
+
 return (
         <div className="CartContainer">
             <Text style={{fontWeight:"600", fontSize:"3rem"}}>Cart</Text>
             <Table columns={columns} dataSource={data} />
+
+
+            <Flex align="center" horizontal="true" justify="space-around">
+                <div>
+                    <h1>Price :${price}</h1>
+                    <h2>Shiping Fee: ${shippingFee}</h2>
+                    <h1>Total Price: ${TOTAL_PRICE}</h1>
+                </div>
+                <Button>Go to CheckOut</Button>
+            </Flex>
+
         </div>
-    )
+)
 }
 
 
