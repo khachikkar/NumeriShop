@@ -1,6 +1,30 @@
 .productDetailCont{
     /*background-color: red;*/
     padding: 8px;
+}
 
+.carousel-container {
+    padding: 20px; /* Add padding around the carousel */
+}
+
+.carousel-item {
+    padding: 0 4px; /* Add gap between slides */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.slick-slide {
+    display: flex; /* Ensure slides are aligned properly */
+    justify-content: center; /* Center items if needed */
+}
+
+.slick-dots {
+    bottom: -20px; /* Adjust dots position */
+    /*background-color: black;*/
+
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 1; /* Ensure arrows are visible */
 
 }
