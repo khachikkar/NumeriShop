@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+a{
+   color: inherit;
+}
+
 :root{
   --border-radius: 2px;
   --primary-color: black;

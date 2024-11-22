@@ -32,6 +32,7 @@ import Dashboard from "./Components/Dashboard";
 import MyProducts from "./Components/MyProducts";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
+import Loved from "./pages/Loved";
 
 
 
@@ -70,6 +71,8 @@ function App() {
 
                         {/*Product Deatils*/}
                         <Route path={ROUTE_CONSTANTS.PRODUCT_DETAILS} element={<ProductDetails />} />
+                        <Route path={ROUTE_CONSTANTS.LOVED} element={<Loved />} />
+
 
                         <Route path={ROUTE_CONSTANTS.CABINET}
                                element={isAuth ? <CabinetLayout/> : <Navigate to={ROUTE_CONSTANTS.LOGIN}/>}>

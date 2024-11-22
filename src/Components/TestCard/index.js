@@ -5,10 +5,11 @@ import { db } from "../../services/firebase";
 import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";
 
 import "./index.css"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../state-management/slices/CartSlice";
 import {useNavigate} from "react-router-dom";
 import {AiFillHeart, AiFillStar} from "react-icons/ai";
+import {toggleLovedProduct} from "../../state-management/slices/LovedProdsSlice";
 
 
 const { Text } = Typography;
@@ -68,12 +69,15 @@ const handleProductDetails = ()=>{
 }
 
 
-    const [clicked, setClicked] = useState(false);
-const handleLove = ()=>{
-    console.log("hello")
-    setClicked(true);
 
-}
+    const lovedProducts = useSelector((state) => state.loved.loved);
+
+    const isLoved = lovedProducts.some((item) => item.id === product.id);
+
+    const handleToggleLoved = () => {
+        dispatch(toggleLovedProduct(product));
+    };
+
 
 
 
@@ -84,7 +88,7 @@ const handleLove = ()=>{
                 <Flex  vertical className="productContainer">
                     <div className="prodimgCont">
                         <img className="prodimg" src={productImageUrl} alt={productImageUrl}/>
-                        <div className="hearticon"><AiFillHeart className={clicked ? "hearticon-active" : ""} onClick={handleLove} size={24} /></div>
+                        <div className="hearticon"><AiFillHeart onClick={handleToggleLoved} style={{color: isLoved ? "red" : "lightgray"}} size={24} /></div>
                     </div>
                     <Flex horizontal justify="space-between" align="center" >
                         <Text style={{fontSize:"1.4rem"}}>{productName}</Text>

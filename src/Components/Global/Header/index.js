@@ -66,8 +66,14 @@ return (
            </Link>
 
         </div>
-       <div className="icon-container"> <IoMdHeartEmpty size={24}/></div>
+       <div className="icon-container">
+           <Link to={ROUTE_CONSTANTS.LOVED}>
+               <IoMdHeartEmpty size={24}/>
+           </Link>
+       </div>
         <div className="men">Menu</div>
+
+
 
         {
             isAuth ? <div className="icon-container"><AuthProfileDropDown userProfileInfo={userData} /></div> :

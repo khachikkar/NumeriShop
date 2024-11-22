@@ -41,7 +41,7 @@ const MobileHeader = () => {
                 id="saved"
                 onClick={() => {
                     handleSetActive('saved')
-                    // navigate(ROUTE_CONSTANTS.PROFILE)
+                    navigate(ROUTE_CONSTANTS.LOVED)
                 }}
 
                 className={activeId === 'saved' ? 'active' : ''}

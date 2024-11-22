@@ -17,7 +17,8 @@ export const ROUTE_CONSTANTS = {
     CART: "/cart",
     GENERAL: "/",
 
-    PRODUCT_DETAILS: "/product/:productId"
+    PRODUCT_DETAILS: "/product/:productId",
+    LOVED: "/loved"
 
 }
 
