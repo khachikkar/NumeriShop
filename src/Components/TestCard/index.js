@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Typography, Avatar, Flex, Rate, Button, Space} from 'antd';
+import {Typography, Avatar, Flex, Button, Space} from 'antd';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { FIRESTORE_PATH_NAMES } from "../../core/constants/constants";

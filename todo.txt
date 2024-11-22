@@ -25,11 +25,23 @@
     -random 5 products //done
 
 
+4. //Add a Loved Page //done
+    -delete from loved //done
+
+
+
 // Todo untill finish of Traing
 
 
 
+10. //Add a Footer
 
+6. //Profile My Products
+    -add an edit product details
+    -delete product from shop
+
+
+------------------------------------
 
 1.1 /// modify a main page categories
 
@@ -41,24 +53,14 @@
 
 
 
-
-4. //Add a Loved Page
-    -delete from loved
-
-10. //Add a Footer
-
-6. //Profile My Products
-    -add an edit product details
-    -delete product from shop
-
-
-
-
-
+///////////////////backend part
 
 7. //Add a Checkout Page
     -integrate a checkout system or s
 
+
+
+/////////////// future
 8. //Add a Settings page (optional)
 
 9. //Add a Statistic Page (optional)
