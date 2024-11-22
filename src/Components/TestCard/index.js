@@ -8,6 +8,7 @@ import "./index.css"
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../state-management/slices/CartSlice";
 import {useNavigate} from "react-router-dom";
+import {AiFillHeart, AiFillStar} from "react-icons/ai";
 
 
 const { Text } = Typography;
@@ -67,6 +68,15 @@ const handleProductDetails = ()=>{
 }
 
 
+    const [clicked, setClicked] = useState(false);
+const handleLove = ()=>{
+    console.log("hello")
+    setClicked(true);
+
+}
+
+
+
     return (
         <div>
             {user && (
@@ -74,10 +84,12 @@ const handleProductDetails = ()=>{
                 <Flex  vertical className="productContainer">
                     <div className="prodimgCont">
                         <img className="prodimg" src={productImageUrl} alt={productImageUrl}/>
+                        <div className="hearticon"><AiFillHeart className={clicked ? "hearticon-active" : ""} onClick={handleLove} size={24} /></div>
                     </div>
                     <Flex horizontal justify="space-between" align="center" >
                         <Text style={{fontSize:"1.4rem"}}>{productName}</Text>
-                        <Rate disabled defaultValue={productRate} />
+                        {/*<Rate disabled defaultValue={productRate} />*/}
+                        <Text style={{fontSize:"1rem"}}><Space style={{alignItems:"center"}}><AiFillStar />{productRate}</Space></Text>
                     </Flex>
 
                     <Flex horizontal justify="space-between" align="center" style={{marginBottom:"10px"}}>

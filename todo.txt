@@ -21,10 +21,12 @@
 1. /// Add a Product Detail Page  //done
     - show product details //done
 
-
+2. ///Add a Suggested Products Page //done
+    -random 5 products //done
 
 
 // Todo untill finish of Traing
+
 
 
 
@@ -35,8 +37,7 @@
 
 1.3(optional) add a search functionality
 
-2. ///Add a Suggested Products Page
-    -random 5 products
+
 
 
 
@@ -49,7 +50,6 @@
 6. //Profile My Products
     -add an edit product details
     -delete product from shop
-
 
 
 
