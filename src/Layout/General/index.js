@@ -3,7 +3,7 @@ import "./index.css"
 import ProductCard from "../../Components/TestCard"
 import myvid from "../../core/images/myvid.mp4"
 
-import {CATEGORIES_IMAGES_OPTIONS, ROUTE_CONSTANTS} from "../../core/constants/constants";
+import {CATEGORIES_IMAGES_OPTIONS} from "../../core/constants/constants";
 import ImageCarousel from "../../Components/ImageCarousel";
 import {Button, Flex, Typography} from "antd";
 import Filter from "../../Components/Filter";

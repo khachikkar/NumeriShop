@@ -48,7 +48,12 @@
     border: 1px solid var(--onwhite);
 }
 
-
+.menuPart span {
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
 
 @media screen and (max-width:500px) {
   .menuPart{

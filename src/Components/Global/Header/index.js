@@ -3,7 +3,7 @@ import "./index.css"
 
 import {Badge, Button, Flex} from "antd"
 import logo from "../../../core/images/logo.png"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
 
 
@@ -13,6 +13,12 @@ import AuthProfileDropDown from '../../shared/AuthProfileDropDown'
 
 // import enq anum useSelectory storic state vercnelu hamar
 import {useSelector} from "react-redux";
+
+
+
+
+import {Modal } from 'antd';
+
 
 
 
@@ -26,8 +32,32 @@ const {authUserProfile: {isAuth, userData}} = useSelector(store=>store.userProfi
 const {cart} = useSelector(store => store.cart)
 
 
-console.log(cart,"IOIOIO")
+const navigate = useNavigate()
 
+const handleClickedCategory = (text) =>{
+const data = text.toLowerCase()
+
+    if(data === "outlet"){
+        navigate(`/all`, {state:{data}})
+    }
+
+
+        console.log("clicked")
+        navigate(`/${data}`, {state:{data}})
+}
+
+const menuitems = ["Outlet", "Man", "Woman", "Kid", "brand T-shirts"] //move to constants
+
+
+
+const items = menuitems.map(item => {
+    return (
+        {
+            key: item,
+            label: <span onClick={()=>handleClickedCategory(item)}>{item}</span>
+        }
+    )
+})
 
 
 return (
@@ -45,17 +75,18 @@ return (
 {/* Jamanakavor menu */}
 
     <Flex gap="middle" justify="space-between" align='center'>
-        <span>Outlet</span>
-        <span>Man</span>
-        <span>Woman</span>
-        <span>Kids</span>
-        <span>Brand T-shirts</span>
+        {
+            menuitems.map((menuItem, i) => {
+                return (
+                    <span onClick={()=>handleClickedCategory(menuItem)} key={i}>{menuItem}</span>
+                )
+            })
+        }
         {/* Jamanakavor navpart */}
     </Flex>
 </div>
 
-
-    <div className='navPart'>
+<div className='navPart'>
 
         {/*<IoBagHandleOutline size={24} />*/}
         <div className="icon-container">
@@ -71,7 +102,14 @@ return (
                <IoMdHeartEmpty size={24}/>
            </Link>
        </div>
-        <div className="men">Menu</div>
+
+
+
+        <div className="men">
+        {/*   menu*/}
+            Mennu
+
+        </div>
 
 
 

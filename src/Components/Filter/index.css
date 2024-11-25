@@ -4,6 +4,7 @@
     color: rgba(0, 0, 0, 0.31);
 /*    delatable*/
     display: flex;
+    width: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
