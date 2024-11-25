@@ -3,12 +3,13 @@ import "./index.css"
 import ProductCard from "../../Components/TestCard"
 import myvid from "../../core/images/myvid.mp4"
 
-import {CATEGORIES_IMAGES_OPTIONS} from "../../core/constants/constants";
+import {CATEGORIES_IMAGES_OPTIONS, ROUTE_CONSTANTS} from "../../core/constants/constants";
 import ImageCarousel from "../../Components/ImageCarousel";
 import {Button, Flex, Typography} from "antd";
 import Filter from "../../Components/Filter";
 import {useDispatch, useSelector} from "react-redux";
 import {getProducts} from "../../state-management/slices/ProductSlice";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -49,6 +50,15 @@ console.log(products, status, "OOOO")
 const {Text} = Typography
 const style = {backgroundColor:"black", color:"white" }
 
+const navigate = useNavigate()
+
+const handleClickedCategory = (text) =>{
+
+    const data = text.toLowerCase()
+
+    console.log("clicked")
+    navigate(`/${data}`, {state:{data}})
+}
 
 
 
@@ -63,7 +73,7 @@ return (
                 {
                     Object.values(CATEGORIES_IMAGES_OPTIONS).map(({text, imageUrl})=>{
                         return(
-                            <div key={text} className="categoryImageContainer">
+                            <div onClick={() => handleClickedCategory(text)} key={text} className="categoryImageContainer">
                               <img src={imageUrl} alt={text} />
                                <h2>{text}</h2>
                             </div>

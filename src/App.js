@@ -33,6 +33,7 @@ import MyProducts from "./Components/MyProducts";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import Loved from "./pages/Loved";
+import FilteredPage from "./pages/FilteredPage";
 
 
 
@@ -72,6 +73,10 @@ function App() {
                         {/*Product Deatils*/}
                         <Route path={ROUTE_CONSTANTS.PRODUCT_DETAILS} element={<ProductDetails />} />
                         <Route path={ROUTE_CONSTANTS.LOVED} element={<Loved />} />
+
+                        <Route path ={ROUTE_CONSTANTS.FILTEREDPAGE} element={<FilteredPage />}/>
+
+
 
 
                         <Route path={ROUTE_CONSTANTS.CABINET}

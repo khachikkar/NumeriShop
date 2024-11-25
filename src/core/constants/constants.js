@@ -18,7 +18,9 @@ export const ROUTE_CONSTANTS = {
     GENERAL: "/",
 
     PRODUCT_DETAILS: "/product/:productId",
-    LOVED: "/loved"
+    LOVED: "/loved",
+
+    FILTEREDPAGE: "/:pageid"
 
 }
 

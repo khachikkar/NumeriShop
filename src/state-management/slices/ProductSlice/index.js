@@ -33,6 +33,7 @@ const  ProductSlice = createSlice({
             })
             .addCase(getProducts.fulfilled, (state, action)=>{
                 state.items = action.payload
+                localStorage.setItem("products", JSON.stringify(action.payload))
                 state.status = "success"
             })
             .addCase(fetchUserProfileInfo.fulfilled, (state, action)=>{

@@ -55,9 +55,19 @@ const ProductCard = ({ product }) => {
 const dispatch = useDispatch();
 
 
+const [buttonload, setButtonload] = useState(false)
+
 const handleProductinCart = (product)=>{
-    console.log("hello", product)
-    dispatch(addToCart(product))
+    setButtonload(true)
+    console.log("hello", product) // how to make loading longer
+    try{
+        dispatch(addToCart(product))
+    }catch(e){
+        console.error(e);
+    }finally {
+        setButtonload(false)
+    }
+
 }
 
 const navigate= useNavigate()
@@ -108,7 +118,7 @@ const handleProductDetails = ()=>{
                     </Flex>
 
                     <Flex horizontal justify="space-between">
-                        <Button onClick={()=>handleProductinCart(product)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
+                        <Button loading={buttonload} onClick={()=>handleProductinCart(product)} style={{marginBottom:"20px", width:"180px", backgroundColor:"black"}} type="primary">Add to Cart</Button>
                         <Button onClick={handleProductDetails}>View more</Button>
                     </Flex>
 
