@@ -45,14 +45,7 @@ const menuitems = ["Outlet", "Man", "Woman", "Kid", "brand T-shirts"] //move to 
 
 
 
-const items = menuitems.map(item => {
-    return (
-        {
-            key: item,
-            label: <span onClick={()=>handleClickedCategory(item)}>{item}</span>
-        }
-    )
-})
+
 
 
 return (

@@ -28,28 +28,30 @@
 4. //Add a Loved Page //done
     -delete from loved //done
 
+10. //Add a Footer  //done
+
+
+
+1.1 /// modify a main page categories // done
+
+
 
 
 // Todo untill finish of Traing
 
 
-
-10. //Add a Footer
-
 6. //Profile My Products
     -add an edit product details
     -delete product from shop
 
+1.2 /// add a filter functionality
+
 
 ------------------------------------
 
-1.1 /// modify a main page categories
-
-1.2 /// add a filter functionality
-
 1.3(optional) add a search functionality
 
-
+-----------------------------------
 
 
 
@@ -67,7 +69,7 @@
     - add a shop details counts, prices, spend money
 
 
-
+//////////very future
 
 11. //Add a Shipping Proccess Status Page (very optional)
 
