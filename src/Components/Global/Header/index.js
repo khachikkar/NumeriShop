@@ -1,13 +1,16 @@
 import React from 'react'
 import "./index.css"
 
-import {Badge, Button, Flex} from "antd"
+import {Badge, Button, Flex, Dropdown, Space, } from "antd"
+
+import { DownOutlined } from '@ant-design/icons';
+
 import logo from "../../../core/images/logo.png"
 import {Link, useNavigate} from "react-router-dom"
 import { ROUTE_CONSTANTS } from '../../../core/constants/constants'
 
 
-import { IoBagHandleOutline } from "react-icons/io5";
+import {IoBagHandleOutline} from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import AuthProfileDropDown from '../../shared/AuthProfileDropDown'
 
@@ -45,11 +48,19 @@ const menuitems = ["Outlet", "Man", "Woman", "Kid", "brand T-shirts"] //move to 
 
 
 
+    ///////  menu show on mobile  version  ////
+const items = menuitems.map((item, i)=>{
+    return (
+        {
+                label: <span onClick={() => handleClickedCategory(item)} key={i}>{item}</span>,
+                key: i,
+        }
+    )
+})
 
 
-
-return (
-<div className="headerCont">
+    return (
+        <div className="headerCont">
 <Flex justify="space-between" align='center' className='myheader'>
 
 <div className='logoPart'>
@@ -95,7 +106,19 @@ return (
 
         <div className="men">
         {/*   menu*/}
-            Mennu
+            <Dropdown
+                menu={{
+                    items,
+                }}
+                trigger={['click']}
+            >
+                <a onClick={(e) => e.preventDefault()}>
+                    <Space>
+                       Menu
+                        <DownOutlined />
+                    </Space>
+                </a>
+            </Dropdown>
 
         </div>
 
