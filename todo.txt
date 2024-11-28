@@ -44,7 +44,7 @@
     -add an edit product details
     -delete product from shop
 
-1.2 /// add a filter functionality
+
 
 
 
@@ -62,6 +62,10 @@
 
 9. //Add a Statistic Page (optional)
     - add a shop details counts, prices, spend money
+
+1.2 /// add a filter functionality/////////////
+
+
 
 
 //////////very future

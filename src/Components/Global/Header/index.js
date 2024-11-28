@@ -112,20 +112,27 @@ const items = menuitems.map((item, i)=>{
                 }}
                 trigger={['click']}
             >
-                <a onClick={(e) => e.preventDefault()}>
+                <button
+                    style={{
+                        all: 'unset', // removes default button styles
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}
+                    onClick={(e) => e.preventDefault()}
+                >
                     <Space>
-                       Menu
-                        <DownOutlined />
+                        Menu
+                        <DownOutlined/>
                     </Space>
-                </a>
+                </button>
             </Dropdown>
 
         </div>
 
 
-
-        {
-            isAuth ? <div className="icon-container"><AuthProfileDropDown userProfileInfo={userData} /></div> :
+    {
+        isAuth ? <div className="icon-container"><AuthProfileDropDown userProfileInfo={userData}/></div> :
             <Link to={ROUTE_CONSTANTS.LOGIN}>
                 <Button className='primaryButton' type='primary'>Sign In</Button>
             </Link>
